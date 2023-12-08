@@ -46,6 +46,7 @@ class AddTaskScreen extends StatelessWidget {
                           )));
                       Navigator.pop(context);
                       print(task);
+                      print(GUIDGen.generate());
                     },
                     child: const Text('Save'))
               ],

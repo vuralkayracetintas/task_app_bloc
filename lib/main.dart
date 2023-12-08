@@ -5,18 +5,21 @@ import 'package:task_app/blocs/bloc_exports.dart';
 
 import 'package:task_app/feature/screens/task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
+import 'package:task_app/product/service/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
-  runApp(const MyApp());
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({super.key, required this.appRouter});
+  final AppRouter appRouter;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: TaskScreen(),
+        onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
   }

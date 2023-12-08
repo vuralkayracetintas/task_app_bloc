@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/add_task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
+import 'package:task_app/product/widgets/drawer.dart';
 import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
 class TaskScreen extends StatelessWidget {
@@ -15,6 +16,8 @@ class TaskScreen extends StatelessWidget {
             ));
   }
 
+  static const String id = 'task_screen';
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
@@ -24,11 +27,12 @@ class TaskScreen extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Task App'),
           ),
+          drawer: DrawerWidget(),
           body: Column(
             children: [
-              const Center(
+              Center(
                 child: Chip(
-                  label: Text('task'),
+                  label: Text('${state.allTasks.length} Tasks'),
                 ),
               ),
               TaskListWidget(taskList: taskList)
