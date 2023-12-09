@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/recycle_bin.dart';
-import 'package:task_app/feature/screens/task_screen.dart';
+import 'package:task_app/feature/screens/tabs_screen.dart';
+import 'package:task_app/feature/screens/pending_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -16,12 +17,12 @@ class DrawerWidget extends StatelessWidget {
           BlocBuilder<TasksBloc, TasksState>(
             builder: (context, state) {
               return GestureDetector(
-                onTap: () => Navigator.of(context).pushNamed(TaskScreen.id),
+                onTap: () => Navigator.of(context).pushNamed(TabScreen.id),
                 child: ListTile(
                   leading: Icon(Icons.folder_special),
                   title: Text("My Tasks"),
                   trailing: Chip(
-                    label: Text(state.allTasks.length.toString()),
+                    label: Text(state.pendingTask.length.toString()),
                   ),
                 ),
               );
