@@ -12,6 +12,9 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
     on<UpdateTask>(_onUpdateTask);
     on<DeleteTask>(_onDeleteTask);
     on<RemoveTask>(_onRemoveTask);
+    on<FavoriteOrUnFavoriteTask>(_onFavoriteOrUnFavoriteTask);
+    on<EditTasks>(_onEditTask);
+    on<RestoreTasks>(_onRestoreTask);
   }
 
   void _onAddTask(AddTask event, Emitter<TasksState> emit) {
@@ -69,6 +72,100 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
         favoriteTask: List.from(state.favoriteTask)..remove(event.task),
         removedTasks: List.from(state.removedTasks)
           ..add(event.task.copyWith(isDeleted: true))));
+  }
+
+  void _onFavoriteOrUnFavoriteTask(
+      FavoriteOrUnFavoriteTask event, Emitter<TasksState> emit) {
+    final state = this.state;
+    List<Task> pendingTask = state.pendingTask;
+    List<Task> completedTask = state.completedTask;
+    List<Task> favoriteTask = state.favoriteTask;
+    if (event.task.isDone == false) {
+      if (event.task.isFavorite == false) {
+        var taskIndex = pendingTask.indexOf(event.task);
+        pendingTask = List.from(pendingTask)
+          ..remove(event.task)
+          ..insert(taskIndex, event.task.copyWith(isFavorite: true));
+        favoriteTask.insert(0, event.task.copyWith(isFavorite: true));
+      } else {
+        var taskIndex = pendingTask.indexOf(event.task);
+        pendingTask = List.from(pendingTask)
+          ..remove(event.task)
+          ..insert(taskIndex, event.task.copyWith(isFavorite: false));
+        favoriteTask.remove(event.task);
+      }
+    } else {
+      if (event.task.isFavorite == false) {
+        var taskIndex = completedTask.indexOf(event.task);
+        completedTask = List.from(completedTask)
+          ..remove(event.task)
+          ..insert(taskIndex, event.task.copyWith(isFavorite: true));
+        favoriteTask.insert(0, event.task.copyWith(isFavorite: true));
+      } else {
+        var taskIndex = completedTask.indexOf(event.task);
+        completedTask = List.from(completedTask)
+          ..remove(event.task)
+          ..insert(taskIndex, event.task.copyWith(isFavorite: false));
+        favoriteTask.remove(event.task);
+      }
+    }
+    emit(TasksState(
+      pendingTask: pendingTask,
+      completedTask: completedTask,
+      favoriteTask: favoriteTask,
+      removedTasks: state.removedTasks,
+    ));
+  }
+
+  void _onEditTask(EditTasks event, Emitter<TasksState> emit) {
+    final state = this.state;
+    List<Task> favouriteTask = state.favoriteTask;
+    if (event.oldTask.isFavorite == true) {
+      favouriteTask
+        ..remove(event.oldTask)
+        ..insert(0, event.newTask);
+    }
+    emit(
+      TasksState(
+        pendingTask: List.from(state.pendingTask)
+          ..remove(event.oldTask)
+          ..insert(0, event.newTask),
+        completedTask: state.completedTask..remove(event.oldTask),
+        favoriteTask: favouriteTask,
+        removedTasks: state.removedTasks,
+      ),
+    );
+  }
+
+  void _onRestoreTask(RestoreTasks event, Emitter<TasksState> emit) {
+    final state = this.state;
+    emit(
+      TasksState(
+        removedTasks: List.from(state.removedTasks)..remove(event.task),
+        pendingTask: List.from(state.pendingTask)
+          ..insert(
+              0,
+              event.task.copyWith(
+                isDeleted: false,
+                isDone: false,
+                isFavorite: false,
+              )),
+        completedTask: state.completedTask,
+        favoriteTask: state.favoriteTask,
+      ),
+    );
+  }
+
+  void _onDeleteAllTask(DeleteAllTasks event, Emitter<TasksState> emit) {
+    final state = this.state;
+    emit(
+      TasksState(
+        removedTasks: List.from(state.removedTasks)..clear(),
+        pendingTask: state.pendingTask,
+        completedTask: state.completedTask,
+        favoriteTask: state.favoriteTask,
+      ),
+    );
   }
 
   @override

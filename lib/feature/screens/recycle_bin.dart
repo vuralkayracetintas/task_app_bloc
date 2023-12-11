@@ -11,7 +11,15 @@ class RecycleBin extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      context.read<TasksBloc>().add(DeleteAllTasks());
+                    },
+                    child: Text('Clear All'))
+              ],
+            ),
             body: Center(
                 child: Column(
               children: [
