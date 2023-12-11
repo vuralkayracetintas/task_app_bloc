@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
-import 'package:task_app/blocs/bloc_exports.dart';
+
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/task_tile.dart';
 
 class TaskListWidget extends StatelessWidget {
-  TaskListWidget({super.key, required this.taskList});
+  const TaskListWidget({super.key, required this.taskList});
 
   final List<Task> taskList;
 
@@ -21,13 +20,13 @@ class TaskListWidget extends StatelessWidget {
                     // body: Text('Description: ${task.description}'),
                     body: SelectableText.rich(TextSpan(
                       children: [
-                        TextSpan(
+                        const TextSpan(
                           text: 'Task : ',
                         ),
                         TextSpan(
                           text: task.title,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: '\n\nDescription:   ',
                         ),
                         TextSpan(

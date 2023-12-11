@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/feature/screens/add_task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
-import 'package:task_app/product/widgets/drawer.dart';
 import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
 class CompletedScreen extends StatelessWidget {
@@ -17,7 +15,7 @@ class CompletedScreen extends StatelessWidget {
         List<Task> taskList = state.completedTask;
         return Column(
           children: [
-            Text('completed'),
+            const Text('completed'),
             Center(
               child: Chip(
                 label: Text('${taskList.length} Tasks'),

@@ -22,13 +22,14 @@ class PopupMenu extends StatelessWidget {
         itemBuilder: task.isDeleted == false
             ? (context) => [
                   PopupMenuItem(
+                    onTap: null,
                     child: TextButton.icon(
                         onPressed: editTask,
                         icon: const Icon(Icons.edit),
                         label: const Text('Edit')),
-                    onTap: null,
                   ),
                   PopupMenuItem(
+                    onTap: likeOrDislike,
                     child: TextButton.icon(
                         onPressed: null,
                         icon: task.isFavorite == false
@@ -37,7 +38,6 @@ class PopupMenu extends StatelessWidget {
                         label: task.isFavorite == false
                             ? const Text('Add to BookMark')
                             : const Text('Remove from BookMark')),
-                    onTap: likeOrDislike,
                   ),
                   PopupMenuItem(
                     onTap: cancelOrDeleteCallBack,
@@ -49,11 +49,11 @@ class PopupMenu extends StatelessWidget {
                 ]
             : (context) => [
                   PopupMenuItem(
+                    onTap: restoreTask,
                     child: TextButton.icon(
                         onPressed: null,
                         icon: const Icon(Icons.restore),
                         label: const Text('Restore')),
-                    onTap: restoreTask,
                   ),
                   PopupMenuItem(
                     onTap: cancelOrDeleteCallBack,

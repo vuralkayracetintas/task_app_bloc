@@ -17,7 +17,7 @@ class RecycleBin extends StatelessWidget {
                     onPressed: () {
                       context.read<TasksBloc>().add(DeleteAllTasks());
                     },
-                    child: Text('Clear All'))
+                    child: const Text('Clear All'))
               ],
             ),
             body: Center(
