@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/add_task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
@@ -19,10 +20,12 @@ class PendingScreen extends StatelessWidget {
           children: [
             Center(
               child: Chip(
-                label: Text('${state.pendingTask.length} Tasks'),
+                label: Text(
+                    '${state.pendingTask.length} Tasks ${state.completedTask.length} Complated'),
               ),
             ),
-            TaskListWidget(taskList: taskList)
+            TaskListWidget(taskList: taskList),
+            SizedBox(height: context.sized.height * 0.1),
           ],
         );
       },

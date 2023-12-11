@@ -12,6 +12,40 @@ class TaskListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      child: SingleChildScrollView(
+        child: ExpansionPanelList.radio(
+            children: taskList
+                .map((task) => ExpansionPanelRadio(
+                    value: task.id,
+                    headerBuilder: (context, isOpen) => TaskTile(task: task),
+                    // body: Text('Description: ${task.description}'),
+                    body: SelectableText.rich(TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Task : ',
+                        ),
+                        TextSpan(
+                          text: task.title,
+                        ),
+                        TextSpan(
+                          text: '\n\nDescription:   ',
+                        ),
+                        TextSpan(
+                          text: task.description,
+                        )
+                      ],
+                    ))))
+                .toList()),
+      ),
+    );
+  }
+}
+
+
+
+
+/*
+Expanded(
       child: ListView.builder(
         itemCount: taskList.length,
         itemBuilder: (context, index) {
@@ -20,6 +54,5 @@ class TaskListWidget extends StatelessWidget {
           return TaskTile(task: task);
         },
       ),
-    );
-  }
-}
+    )
+*/
