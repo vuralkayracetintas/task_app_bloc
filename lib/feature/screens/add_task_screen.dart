@@ -36,6 +36,7 @@ class AddTaskScreen extends StatelessWidget {
               controller: descriptionController,
               minLines: 3,
               maxLines: 5,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   label: Text('description'), border: OutlineInputBorder()),
             ),
@@ -47,24 +48,26 @@ class AddTaskScreen extends StatelessWidget {
                   child: const Text('Cancel'),
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      var task = titleController.text;
-                      var desc = descriptionController.text;
-                      context.read<TasksBloc>().add(AddTask(
-                              task: Task(
-                            title: task,
-                            id: GUIDGen.generate(),
-                            description: desc,
-                            date: DateTime.now().toString(),
-                          )));
-                      Navigator.pop(context);
-                      print(task);
-                      print(desc);
-                      print(GUIDGen.generate());
-                    },
-                    child: const Text('Save'))
+                  onPressed: () {
+                    var task = titleController.text;
+                    var desc = descriptionController.text;
+                    context.read<TasksBloc>().add(AddTask(
+                            task: Task(
+                          title: task,
+                          id: GUIDGen.generate(),
+                          description: desc,
+                          date: DateTime.now().toString(),
+                        )));
+                    Navigator.pop(context);
+                    print(task);
+                    print(desc);
+                    print(GUIDGen.generate());
+                  },
+                  child: const Text('Save'),
+                ),
               ],
             ),
+            SizedBox(height: context.sized.height * 0.3)
           ],
         ),
       ),

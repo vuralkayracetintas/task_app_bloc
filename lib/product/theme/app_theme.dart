@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_app/product/constants/color_constants.dart';
 
 enum AppTheme {
   lightTheme,
@@ -40,8 +41,8 @@ class AppThemes {
       backgroundColor: const Color(0xFFE5E5E5),
       dividerColor: const Color(0xff757575),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        backgroundColor: ColorConstants.hotPink,
+        foregroundColor: Colors.black,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -49,10 +50,10 @@ class AppThemes {
         ),
       ),
       textTheme: const TextTheme(
-        subtitle1: TextStyle(color: Colors.black),
+        titleMedium: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.grey,
+          backgroundColor: ColorConstants.cl1,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),
