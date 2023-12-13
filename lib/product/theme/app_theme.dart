@@ -28,7 +28,10 @@ class AppThemes {
         subtitle1: TextStyle(color: Colors.white),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.grey, unselectedItemColor: Colors.white),
+        backgroundColor: ColorConstants.koromiko,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.black,
+      ),
     ),
 
     //

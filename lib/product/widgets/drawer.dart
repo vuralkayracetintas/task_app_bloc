@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
@@ -12,7 +13,9 @@ class DrawerWidget extends StatelessWidget {
         child: SafeArea(
       child: Column(
         children: [
-          const Text('Task Drawer'),
+          SizedBox(
+            height: context.sized.height * 0.05,
+          ),
           BlocBuilder<TasksBloc, TasksState>(
             builder: (context, state) {
               return GestureDetector(
