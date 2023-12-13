@@ -13,10 +13,11 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.black,
       brightness: Brightness.dark,
-      backgroundColor: const Color(0xFF212121),
+      // backgroundColor: const Color(0xFF212121),
+      // backgroundColor: Colors.red,
       dividerColor: Colors.black54,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorConstants.purpleLight,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -38,10 +39,15 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
       brightness: Brightness.light,
-      backgroundColor: const Color(0xFFE5E5E5),
-      dividerColor: const Color(0xff757575),
+      // backgroundColor: const Color(0xFFE5E5E5),
+
+      // dividerColor: const Color(0xff757575),
+      appBarTheme: AppBarTheme(
+        backgroundColor: ColorConstants.purpleLight,
+      ),
+      backgroundColor: ColorConstants.purpleLight,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: ColorConstants.hotPink,
+        backgroundColor: ColorConstants.purpleLight,
         foregroundColor: Colors.black,
       ),
       textButtonTheme: TextButtonThemeData(
@@ -53,7 +59,7 @@ class AppThemes {
         titleMedium: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: ColorConstants.cl1,
+          backgroundColor: ColorConstants.koromiko,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),

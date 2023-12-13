@@ -15,7 +15,6 @@ class CompletedScreen extends StatelessWidget {
         List<Task> taskList = state.completedTask;
         return Column(
           children: [
-            const Text('completed'),
             Center(
               child: Chip(
                 label: Text('${taskList.length} Tasks'),

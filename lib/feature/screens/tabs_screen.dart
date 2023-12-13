@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:task_app/feature/screens/add_task_screen.dart';
 import 'package:task_app/feature/screens/completed_task_screen.dart';
 import 'package:task_app/feature/screens/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending_screen.dart';
+import 'package:task_app/product/constants/color_constants.dart';
 import 'package:task_app/product/widgets/drawer.dart';
 
 class TabScreen extends StatefulWidget {
@@ -34,8 +36,10 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(_pages[_selectedPage]['title']),
+        backgroundColor: context.general.appTheme.backgroundColor,
       ),
       drawer: const DrawerWidget(),
       body: _pages[_selectedPage]['pageName'],
@@ -43,10 +47,16 @@ class _TabScreenState extends State<TabScreen> {
           ? FloatingActionButton(
               tooltip: 'Add Task',
               onPressed: () => _addTask(context),
-              child: const Icon(Icons.add),
+              child: const Icon(
+                Icons.add,
+                color: Colors.black,
+              ),
             )
           : null,
       bottomNavigationBar: BottomNavigationBar(
+        // type: BottomNavigationBarType.shifting,
+
+        elevation: 10,
         currentIndex: _selectedPage,
         onTap: (index) {
           setState(() {

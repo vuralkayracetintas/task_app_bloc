@@ -14,6 +14,7 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
     on<FavoriteOrUnFavoriteTask>(_onFavoriteOrUnFavoriteTask);
     on<EditTasks>(_onEditTask);
     on<RestoreTasks>(_onRestoreTask);
+    on<DeleteAllTasks>(_onDeleteAllTask);
   }
 
   void _onAddTask(AddTask event, Emitter<TasksState> emit) {

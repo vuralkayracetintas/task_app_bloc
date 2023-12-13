@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
+import 'package:task_app/product/constants/color_constants.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/task_tile.dart';
@@ -13,27 +15,27 @@ class TaskListWidget extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         child: ExpansionPanelList.radio(
+            dividerColor: ColorConstants.tiffaniyBlue,
+            // expandIconColor: Colors.red,
             children: taskList
                 .map((task) => ExpansionPanelRadio(
+                    // backgroundColor: Theme.of(context).backgroundColor,
                     value: task.id,
                     headerBuilder: (context, isOpen) => TaskTile(task: task),
-                    // body: Text('Description: ${task.description}'),
-                    body: SelectableText.rich(TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Task : ',
-                        ),
-                        TextSpan(
-                          text: task.title,
-                        ),
-                        const TextSpan(
-                          text: '\n\nDescription:   ',
-                        ),
-                        TextSpan(
-                          text: task.description,
-                        )
-                      ],
-                    ))))
+                    body: Padding(
+                      padding: context.padding.low,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text('Task : ${task.title}'),
+                          SizedBox(height: context.sized.height * 0.01),
+                          Text('Description : ${task.description}'),
+                          SizedBox(height: context.sized.height * 0.02),
+                        ],
+                      ),
+                    )))
                 .toList()),
       ),
     );

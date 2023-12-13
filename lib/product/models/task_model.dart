@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
 class Task with EquatableMixin {
-  final String title;
   final String id;
+  final String title;
   final String description;
   final String date;
   bool? isFavorite;
@@ -10,10 +10,10 @@ class Task with EquatableMixin {
   bool? isDeleted;
 
   Task({
-    required this.title,
     required this.id,
-    required this.description,
     required this.date,
+    required this.title,
+    required this.description,
     this.isFavorite,
     this.isDone,
     this.isDeleted,

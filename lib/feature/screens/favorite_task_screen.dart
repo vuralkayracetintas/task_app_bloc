@@ -17,7 +17,6 @@ class FavoriteScreen extends StatelessWidget {
         List<Task> taskList = state.favoriteTask;
         return Column(
           children: [
-            const Text('favorite'),
             Center(
               child: Chip(
                 label: Text('${state.favoriteTask.length} Tasks'),

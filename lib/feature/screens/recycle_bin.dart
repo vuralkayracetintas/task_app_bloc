@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
@@ -11,22 +12,37 @@ class RecycleBin extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         return Scaffold(
-            appBar: AppBar(
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      context.read<TasksBloc>().add(DeleteAllTasks());
-                    },
-                    child: const Text('Clear All'))
-              ],
-            ),
-            body: Center(
-                child: Column(
-              children: [
+          appBar: AppBar(
+            title:
                 Chip(label: Text('${state.removedTasks.length} deleted task')),
-                TaskListWidget(taskList: state.removedTasks)
-              ],
-            )));
+            actions: [
+              TextButton(
+                  onPressed: () =>
+                      context.read<TasksBloc>().add(DeleteAllTasks()),
+                  child: const Text('Clear All'))
+            ],
+          ),
+
+          body: Column(
+            children: [
+              // Diğer widget'lar buraya eklenebilir
+              Expanded(
+                child: SingleChildScrollView(
+                  child: TaskListWidget(taskList: state.removedTasks),
+                ),
+              ),
+
+              SizedBox(
+                height: context.sized.height * 0.05,
+              )
+            ],
+          ),
+          // body: Expanded(
+          //   child: SingleChildScrollView(
+
+          //   ),
+          // ),
+        );
       },
     );
   }
