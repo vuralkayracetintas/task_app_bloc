@@ -42,6 +42,9 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
       brightness: Brightness.light,
+      checkboxTheme: CheckboxThemeData(
+        checkColor: MaterialStateProperty.all(ColorConstants.orange),
+      ),
       // backgroundColor: const Color(0xFFE5E5E5),
 
       // dividerColor: const Color(0xff757575),
@@ -50,9 +53,6 @@ class AppThemes {
       ),
       backgroundColor: ColorConstants.purpleLight,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        // backgroundColor: ColorConstants.purpleLight,
-        // backgroundColor: ColorConstants.coldBlue,
-        // backgroundColor: ColorConstants.darkGreen,
         backgroundColor: ColorConstants.orange,
         foregroundColor: Colors.black,
       ),

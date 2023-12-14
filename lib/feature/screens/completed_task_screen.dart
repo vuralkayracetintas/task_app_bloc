@@ -13,15 +13,17 @@ class CompletedScreen extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.completedTask;
-        return Column(
-          children: [
-            Center(
-              child: Chip(
-                label: Text('${taskList.length} Tasks'),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: Chip(
+                  label: Text('${taskList.length} Tasks'),
+                ),
               ),
-            ),
-            TaskListWidget(taskList: taskList)
-          ],
+              TaskListWidget(taskList: taskList)
+            ],
+          ),
         );
       },
     );

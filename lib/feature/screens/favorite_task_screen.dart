@@ -15,15 +15,17 @@ class FavoriteScreen extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.favoriteTask;
-        return Column(
-          children: [
-            Center(
-              child: Chip(
-                label: Text('${state.favoriteTask.length} Tasks'),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: Chip(
+                  label: Text('${state.favoriteTask.length} Tasks'),
+                ),
               ),
-            ),
-            TaskListWidget(taskList: taskList)
-          ],
+              TaskListWidget(taskList: taskList)
+            ],
+          ),
         );
       },
     );
