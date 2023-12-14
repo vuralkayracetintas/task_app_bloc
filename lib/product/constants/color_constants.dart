@@ -12,4 +12,16 @@ class ColorConstants {
   static const Color purpleLight = Color(0xffF1EAFF);
   static const Color tiffaniyBlue = Color(0xffA0E7E5);
   static const Color hotPink = Color(0xffFFAEBC);
+
+  // blue
+
+  static const Color navyBlue = Color(0xff164863);
+  static const Color blue = Color(0xff427d9d);
+  static const Color blueLight = Color(0xff9bbec8);
+  static const Color coldBlue = Color(0xffddf2fd);
+
+  // green
+
+  static const Color darkGreen = Color(0xff36b84b);
+  static const Color lightGreen = Color(0xff7ec241);
 }
