@@ -23,7 +23,7 @@ class PendingScreen extends StatelessWidget {
                 child: Chip(
                   // backgroundColor: ColorConstants.hotPink,
                   label: Text(
-                      '${state.pendingTask.length} Tasks ${state.completedTask.length} Complated'),
+                      '${state.pendingTask.length} Tasks ${state.completedTask.length} Completed'),
                 ),
               ),
               TaskListWidget(taskList: taskList),

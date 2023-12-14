@@ -20,7 +20,11 @@ class FavoriteScreen extends StatelessWidget {
             children: [
               Center(
                 child: Chip(
-                  label: Text('${state.favoriteTask.length} Tasks'),
+                  label: state.favoriteTask.isNotEmpty
+                      ? state.favoriteTask.length == 1
+                          ? Text('${state.favoriteTask.length} Task Favorite')
+                          : Text('${state.favoriteTask.length} Tasks Favorite')
+                      : const Text('No Favorite Task'),
                 ),
               ),
               TaskListWidget(taskList: taskList)

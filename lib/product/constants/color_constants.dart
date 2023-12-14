@@ -15,6 +15,7 @@ class ColorConstants {
 
   // blue
 
+  static const Color darkBlue = Color(0xff0F2167);
   static const Color navyBlue = Color(0xff164863);
   static const Color blue = Color(0xff427d9d);
   static const Color blueLight = Color(0xff9bbec8);

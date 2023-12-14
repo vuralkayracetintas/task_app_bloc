@@ -48,9 +48,9 @@ class _TaskTileState extends State<TaskTile> {
           Expanded(
             child: Row(
               children: [
-                widget.task.isFavorite == false
-                    ? const Icon(Icons.star_border_outlined)
-                    : const Icon(Icons.star),
+                // widget.task.isFavorite == false
+                //     ? const Icon(Icons.star_border_outlined)
+                //     : const Icon(Icons.star),
                 SizedBox(
                   width: context.sized.width * 0.05,
                 ),

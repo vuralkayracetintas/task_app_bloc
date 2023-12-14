@@ -18,7 +18,9 @@ class CompletedScreen extends StatelessWidget {
             children: [
               Center(
                 child: Chip(
-                  label: Text('${taskList.length} Tasks'),
+                  label: taskList.isNotEmpty
+                      ? Text('${taskList.length} Tasks Completed')
+                      : Text('No Completed Task'),
                 ),
               ),
               TaskListWidget(taskList: taskList)

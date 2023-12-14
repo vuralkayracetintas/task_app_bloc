@@ -49,7 +49,7 @@ class AppThemes {
 
       // dividerColor: const Color(0xff757575),
       appBarTheme: const AppBarTheme(
-        backgroundColor: ColorConstants.darkGreen,
+        backgroundColor: ColorConstants.purpleLight,
       ),
       backgroundColor: ColorConstants.purpleLight,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -65,10 +65,11 @@ class AppThemes {
         titleMedium: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          // backgroundColor: ColorConstants.koromiko,
-          backgroundColor: ColorConstants.darkGreen,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white),
+        // backgroundColor: ColorConstants.koromiko,
+        backgroundColor: ColorConstants.purpleLight,
+        selectedItemColor: ColorConstants.darkBlue,
+        unselectedItemColor: ColorConstants.blue,
+      ),
     ),
   };
 }

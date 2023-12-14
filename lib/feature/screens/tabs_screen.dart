@@ -63,20 +63,20 @@ class _TabScreenState extends State<TabScreen> {
             _selectedPage = index;
           });
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(
+            icon: const Icon(
               Icons.list,
             ),
-            label: 'Pending Task',
+            label: _pages[0]['title'],
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.done),
-            label: 'Complated Task',
+            icon: const Icon(Icons.done),
+            label: _pages[1]['title'],
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite Task',
+            icon: const Icon(Icons.favorite),
+            label: _pages[2]['title'],
           )
         ],
       ),
