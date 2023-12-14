@@ -25,7 +25,7 @@ class AppThemes {
         ),
       ),
       textTheme: const TextTheme(
-        subtitle1: TextStyle(color: Colors.white),
+        titleMedium: TextStyle(color: Colors.white),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: ColorConstants.koromiko,
@@ -45,7 +45,7 @@ class AppThemes {
       // backgroundColor: const Color(0xFFE5E5E5),
 
       // dividerColor: const Color(0xff757575),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: ColorConstants.purpleLight,
       ),
       backgroundColor: ColorConstants.purpleLight,

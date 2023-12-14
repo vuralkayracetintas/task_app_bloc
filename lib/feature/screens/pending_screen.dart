@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/product/constants/color_constants.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 
