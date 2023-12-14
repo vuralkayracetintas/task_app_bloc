@@ -16,18 +16,20 @@ class PendingScreen extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.pendingTask;
-        return Column(
-          children: [
-            Center(
-              child: Chip(
-                // backgroundColor: ColorConstants.hotPink,
-                label: Text(
-                    '${state.pendingTask.length} Tasks ${state.completedTask.length} Complated'),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: Chip(
+                  // backgroundColor: ColorConstants.hotPink,
+                  label: Text(
+                      '${state.pendingTask.length} Tasks ${state.completedTask.length} Complated'),
+                ),
               ),
-            ),
-            TaskListWidget(taskList: taskList),
-            SizedBox(height: context.sized.height * 0.09),
-          ],
+              TaskListWidget(taskList: taskList),
+              SizedBox(height: context.sized.height * 0.09),
+            ],
+          ),
         );
       },
     );

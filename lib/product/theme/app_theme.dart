@@ -46,11 +46,14 @@ class AppThemes {
 
       // dividerColor: const Color(0xff757575),
       appBarTheme: const AppBarTheme(
-        backgroundColor: ColorConstants.purpleLight,
+        backgroundColor: ColorConstants.darkGreen,
       ),
       backgroundColor: ColorConstants.purpleLight,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: ColorConstants.purpleLight,
+        // backgroundColor: ColorConstants.purpleLight,
+        // backgroundColor: ColorConstants.coldBlue,
+        // backgroundColor: ColorConstants.darkGreen,
+        backgroundColor: ColorConstants.orange,
         foregroundColor: Colors.black,
       ),
       textButtonTheme: TextButtonThemeData(
@@ -62,7 +65,8 @@ class AppThemes {
         titleMedium: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: ColorConstants.koromiko,
+          // backgroundColor: ColorConstants.koromiko,
+          backgroundColor: ColorConstants.darkGreen,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),

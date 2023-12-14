@@ -25,13 +25,11 @@ class RecycleBin extends StatelessWidget {
 
           body: Column(
             children: [
-              // Diğer widget'lar buraya eklenebilir
               Expanded(
                 child: SingleChildScrollView(
                   child: TaskListWidget(taskList: state.removedTasks),
                 ),
               ),
-
               SizedBox(
                 height: context.sized.height * 0.05,
               )

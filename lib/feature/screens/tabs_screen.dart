@@ -39,7 +39,7 @@ class _TabScreenState extends State<TabScreen> {
       // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(_pages[_selectedPage]['title']),
-        backgroundColor: context.general.appTheme.backgroundColor,
+        backgroundColor: context.general.appTheme.appBarTheme.backgroundColor,
       ),
       drawer: const DrawerWidget(),
       body: _pages[_selectedPage]['pageName'],

@@ -12,33 +12,29 @@ class TaskListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: ExpansionPanelList.radio(
-            dividerColor: ColorConstants.tiffaniyBlue,
-            // expandIconColor: Colors.red,
-            children: taskList
-                .map((task) => ExpansionPanelRadio(
-                    // backgroundColor: Theme.of(context).backgroundColor,
-                    value: task.id,
-                    headerBuilder: (context, isOpen) => TaskTile(task: task),
-                    body: Padding(
-                      padding: context.padding.low,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text('Task : ${task.title}'),
-                          SizedBox(height: context.sized.height * 0.01),
-                          Text('Description : ${task.description}'),
-                          SizedBox(height: context.sized.height * 0.02),
-                        ],
-                      ),
-                    )))
-                .toList()),
-      ),
-    );
+    return ExpansionPanelList.radio(
+        dividerColor: ColorConstants.tiffaniyBlue,
+        // expandIconColor: Colors.red,
+        children: taskList
+            .map((task) => ExpansionPanelRadio(
+                // backgroundColor: Theme.of(context).backgroundColor,
+                value: task.id,
+                headerBuilder: (context, isOpen) => TaskTile(task: task),
+                body: Padding(
+                  padding: context.padding.low,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('Task : ${task.title}'),
+                      SizedBox(height: context.sized.height * 0.01),
+                      Text('Description : ${task.description}'),
+                      SizedBox(height: context.sized.height * 0.02),
+                    ],
+                  ),
+                )))
+            .toList());
   }
 }
 

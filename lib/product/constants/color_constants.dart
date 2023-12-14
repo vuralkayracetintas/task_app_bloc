@@ -24,4 +24,8 @@ class ColorConstants {
 
   static const Color darkGreen = Color(0xff36b84b);
   static const Color lightGreen = Color(0xff7ec241);
+
+  //orange
+
+  static const Color orange = Color(0xffFF6C22);
 }
