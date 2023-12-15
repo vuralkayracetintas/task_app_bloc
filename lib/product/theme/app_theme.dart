@@ -12,6 +12,9 @@ class AppThemes {
       drawerTheme: DrawerThemeData(
         backgroundColor: Colors.grey,
       ),
+      dividerTheme: DividerThemeData(
+        color: ColorConstants.darkPurple,
+      ),
       useMaterial3: true,
       primarySwatch: Colors.grey,
       primaryColor: Colors.black,
@@ -19,8 +22,9 @@ class AppThemes {
       backgroundColor: const Color(0xFF212121),
       dividerColor: Colors.black54,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.grey,
-        foregroundColor: Colors.white,
+        // backgroundColor: Colors.grey,
+        backgroundColor: ColorConstants.lightPurple,
+        foregroundColor: Colors.black,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -28,7 +32,7 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.grey,
+        backgroundColor: ColorConstants.purple,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
       ),
@@ -42,6 +46,9 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
       brightness: Brightness.light,
+      dividerTheme: DividerThemeData(
+        color: ColorConstants.dividerColor,
+      ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
       ),

@@ -21,7 +21,8 @@ class DrawerWidget extends StatelessWidget {
     // }
 
     return Drawer(
-      backgroundColor: context.general.appTheme.drawerTheme.backgroundColor,
+      // backgroundColor: context.general.appTheme.drawerTheme.backgroundColor,
+      backgroundColor: context.general.appTheme.backgroundColor,
       child: //Container(
           // decoration: const BoxDecoration(
           //   gradient: LinearGradient(
@@ -47,7 +48,9 @@ class DrawerWidget extends StatelessWidget {
                   onTap: () => Navigator.of(context).pushNamed(TabScreen.id),
                   child: ListTile(
                     leading: const Icon(Icons.folder_special),
-                    title: const Text("My Tasks"),
+                    title: const Text(
+                      "My Tasks",
+                    ),
                     trailing: Chip(
                       padding: context.padding.low,
                       label: Text(state.pendingTask.length.toString()),
@@ -64,7 +67,6 @@ class DrawerWidget extends StatelessWidget {
                     leading: const Icon(Icons.delete),
                     title: const Text("Trash"),
                     trailing: Chip(
-                      side: const BorderSide(color: Colors.black),
                       padding: context.padding.low,
                       label: Text(state.removedTasks.length.toString()),
                     ),

@@ -13,7 +13,8 @@ class TaskListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionPanelList.radio(
-        dividerColor: ColorConstants.dividerColor,
+        dividerColor: context.general.appTheme.dividerTheme.color,
+        elevation: 2,
         // expandIconColor: Colors.red,
         children: taskList
             .map((task) => ExpansionPanelRadio(
