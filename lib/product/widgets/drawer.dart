@@ -21,7 +21,7 @@ class DrawerWidget extends StatelessWidget {
     // }
 
     return Drawer(
-      backgroundColor: Colors.white,
+      backgroundColor: context.general.appTheme.drawerTheme.backgroundColor,
       child: //Container(
           // decoration: const BoxDecoration(
           //   gradient: LinearGradient(

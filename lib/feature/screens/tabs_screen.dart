@@ -47,9 +47,10 @@ class _TabScreenState extends State<TabScreen> {
           ? FloatingActionButton(
               tooltip: 'Add Task',
               onPressed: () => _addTask(context),
-              child: const Icon(
+              child: Icon(
                 Icons.add,
-                color: Colors.black,
+                color: context
+                    .general.appTheme.floatingActionButtonTheme.foregroundColor,
               ),
             )
           : null,
