@@ -9,10 +9,10 @@ enum AppTheme {
 class AppThemes {
   static final appThemeData = {
     AppTheme.darkTheme: ThemeData(
-      drawerTheme: DrawerThemeData(
+      drawerTheme: const DrawerThemeData(
         backgroundColor: Colors.grey,
       ),
-      dividerTheme: DividerThemeData(
+      dividerTheme: const DividerThemeData(
         color: ColorConstants.darkPurple,
       ),
       useMaterial3: true,
@@ -46,7 +46,7 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
       brightness: Brightness.light,
-      dividerTheme: DividerThemeData(
+      dividerTheme: const DividerThemeData(
         color: ColorConstants.dividerColor,
       ),
       appBarTheme: const AppBarTheme(

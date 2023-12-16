@@ -3,7 +3,6 @@ import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
-import 'package:task_app/product/constants/color_constants.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
