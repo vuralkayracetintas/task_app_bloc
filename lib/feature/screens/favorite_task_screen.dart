@@ -6,7 +6,9 @@ import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({super.key});
+  const FavoriteScreen({
+    super.key,
+  });
 
   static const String id = 'favorite_screen';
 
@@ -15,6 +17,7 @@ class FavoriteScreen extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.favoriteTask;
+
         return SingleChildScrollView(
           child: Column(
             children: [
@@ -27,7 +30,10 @@ class FavoriteScreen extends StatelessWidget {
                       : const Text('No Favorite Task'),
                 ),
               ),
-              TaskListWidget(taskList: taskList)
+              TaskListWidget(
+                taskList: taskList,
+                isComplated: true,
+              )
             ],
           ),
         );

@@ -6,9 +6,10 @@ import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/task_tile.dart';
 
 class TaskListWidget extends StatelessWidget {
-  const TaskListWidget({super.key, required this.taskList});
+  const TaskListWidget({super.key, required this.taskList, this.isComplated});
 
   final List<Task> taskList;
+  final bool? isComplated;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,10 @@ class TaskListWidget extends StatelessWidget {
             .map((task) => ExpansionPanelRadio(
                 // backgroundColor: Theme.of(context).backgroundColor,
                 value: task.id,
-                headerBuilder: (context, isOpen) => TaskTile(task: task),
+                headerBuilder: (context, isOpen) => TaskTile(
+                      task: task,
+                      isComplated: isComplated ?? false,
+                    ),
                 body: Padding(
                   padding: context.padding.low,
                   child: Column(
@@ -28,7 +32,7 @@ class TaskListWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Task : ${task.title}'),
+                      Text('Title : ${task.title}'),
                       SizedBox(height: context.sized.height * 0.01),
                       Text('Description : ${task.description}'),
                       SizedBox(height: context.sized.height * 0.02),

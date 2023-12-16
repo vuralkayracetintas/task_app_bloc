@@ -7,13 +7,14 @@ import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/popup_menu.dart';
 
 class TaskTile extends StatefulWidget {
-  const TaskTile({
+  TaskTile({
     super.key,
     required this.task,
+    required this.isComplated,
   });
 
   final Task task;
-
+  bool isComplated;
   @override
   State<TaskTile> createState() => _TaskTileState();
 }
@@ -48,9 +49,9 @@ class _TaskTileState extends State<TaskTile> {
           Expanded(
             child: Row(
               children: [
-                // widget.task.isFavorite == false
-                //     ? const Icon(Icons.star_border_outlined)
-                //     : const Icon(Icons.star),
+                widget.task.isFavorite == false
+                    ? const Icon(Icons.star_border_outlined)
+                    : const Icon(Icons.star),
                 SizedBox(
                   width: context.sized.width * 0.05,
                 ),
@@ -74,18 +75,23 @@ class _TaskTileState extends State<TaskTile> {
                 ),
                 Row(
                   children: [
-                    Checkbox(
-                        // checkColor: Colors.black,
-                        activeColor: context.general.appTheme
-                            .floatingActionButtonTheme.backgroundColor,
-                        value: widget.task.isDone,
-                        onChanged: widget.task.isDeleted == false
-                            ? (value) {
-                                context
-                                    .read<TasksBloc>()
-                                    .add(UpdateTask(task: widget.task));
-                              }
-                            : null),
+                    widget.isComplated == false
+                        ? // Yeni eklenen satır
+                        Checkbox(
+                            activeColor: context.general.appTheme
+                                .floatingActionButtonTheme.backgroundColor,
+                            value: widget.task.isDone,
+                            onChanged: widget.task.isDeleted == false
+                                ? (value) {
+                                    context
+                                        .read<TasksBloc>()
+                                        .add(UpdateTask(task: widget.task));
+                                  }
+                                : null,
+                          )
+                        : SizedBox(
+                            width: context.sized.width * 0.05,
+                          ),
                     PopupMenu(
                       task: widget.task,
                       cancelOrDeleteCallBack: () =>

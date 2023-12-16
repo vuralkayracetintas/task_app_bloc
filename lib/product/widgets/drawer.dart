@@ -76,13 +76,19 @@ class DrawerWidget extends StatelessWidget {
             ),
             BlocBuilder<SwitchBloc, SwitchState>(
               builder: (context, state) {
-                return Switch(
-                  value: state.switchValue,
-                  onChanged: (newValue) {
-                    newValue
-                        ? context.read<SwitchBloc>().add(SwitchOnEvent())
-                        : context.read<SwitchBloc>().add(SwitchOffEvent());
-                  },
+                return ListTile(
+                  leading: state.switchValue
+                      ? const Icon(Icons.dark_mode)
+                      : const Icon(Icons.light_mode),
+                  title: const Text('Theme Mode'),
+                  trailing: Switch(
+                    value: state.switchValue,
+                    onChanged: (newValue) {
+                      newValue
+                          ? context.read<SwitchBloc>().add(SwitchOnEvent())
+                          : context.read<SwitchBloc>().add(SwitchOffEvent());
+                    },
+                  ),
                 );
               },
             )
