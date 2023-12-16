@@ -45,9 +45,9 @@ class AppThemes {
       useMaterial3: true,
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
-      brightness: Brightness.light,
+      // brightness: Brightness.light,
       dividerTheme: const DividerThemeData(
-        color: ColorConstants.dividerColor,
+        color: ColorConstants.darkPurple,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
