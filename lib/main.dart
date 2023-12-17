@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
             //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             //   useMaterial3: true,
             // ),
+            debugShowCheckedModeBanner: false,
             theme: state.switchValue
                 ? AppThemes.appThemeData[AppTheme.darkTheme]
                 : AppThemes.appThemeData[AppTheme.lightTheme],

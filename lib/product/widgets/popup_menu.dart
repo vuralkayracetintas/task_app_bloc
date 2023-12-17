@@ -39,8 +39,8 @@ class PopupMenu extends StatelessWidget {
                             ? const Icon(Icons.bookmark_add_outlined)
                             : const Icon(Icons.bookmark_remove),
                         label: task.isFavorite == false
-                            ? const Text('Add to BookMark')
-                            : const Text('Remove from BookMark')),
+                            ? const Text('Add to Favorite')
+                            : const Text('Remove from Favorite')),
                   ),
                   PopupMenuItem(
                     onTap: cancelOrDeleteCallBack,
