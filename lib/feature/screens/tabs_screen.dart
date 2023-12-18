@@ -43,7 +43,6 @@ class _TabScreenState extends State<TabScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final AdsFunction adsFunction = AdsFunction();
     return Scaffold(
       // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(

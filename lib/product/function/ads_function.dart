@@ -9,7 +9,7 @@ class AdsFunction extends ChangeNotifier {
   void loadIntestitialAd() {
     InterstitialAd.load(
       adUnitId: AdsService.interstitialAdUnitId,
-      request: AdRequest(),
+      request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           interstitialAd = ad;

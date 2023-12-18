@@ -66,7 +66,7 @@ class EditTaskScreen extends StatelessWidget {
                           EditTasks(oldTask: oldTask, newTask: editedTask));
                       Navigator.pop(context);
 
-                      print(GUIDGen.generate());
+                      debugPrint(GUIDGen.generate());
                     },
                     child: const Text('Save'))
               ],

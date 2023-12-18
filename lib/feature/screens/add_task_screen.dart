@@ -62,7 +62,6 @@ class AddTaskScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    //! add ads
                     // googleAds.showInterstitialAd2();
                     if (!adShown) {
                       // googleAds.showInterstitialAd2();
@@ -81,9 +80,9 @@ class AddTaskScreen extends StatelessWidget {
                           date: DateTime.now().toString(),
                         )));
                     Navigator.pop(context);
-                    print(task);
-                    print(desc);
-                    print(GUIDGen.generate());
+                    debugPrint(task);
+                    debugPrint(desc);
+                    debugPrint(GUIDGen.generate());
                   },
                   child: const Text('Save'),
                 ),
