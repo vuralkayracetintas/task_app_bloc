@@ -62,27 +62,47 @@ class AddTaskScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    // googleAds.showInterstitialAd2();
-                    if (!adShown) {
-                      // googleAds.showInterstitialAd2();
-                      adsFunction.loadIntestitialAd();
-                      // Mark that the ad has been shown
-                      adShown = true;
-                    }
+                    if (titleController.text.isEmpty) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Warning'),
+                            content: Text('Title cannot be empty.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    } else {
+                      if (!adShown) {
+                        adsFunction.loadIntestitialAd();
+                        adShown = true;
+                      }
 
-                    var task = titleController.text;
-                    var desc = descriptionController.text;
-                    context.read<TasksBloc>().add(AddTask(
-                            task: Task(
-                          title: task,
-                          id: GUIDGen.generate(),
-                          description: desc,
-                          date: DateTime.now().toString(),
-                        )));
-                    Navigator.pop(context);
-                    debugPrint(task);
-                    debugPrint(desc);
-                    debugPrint(GUIDGen.generate());
+                      var task = titleController.text;
+                      var desc = descriptionController.text;
+                      context.read<TasksBloc>().add(
+                            AddTask(
+                              task: Task(
+                                title: task,
+                                id: GUIDGen.generate(),
+                                description: desc,
+                                date: DateTime.now().toString(),
+                              ),
+                            ),
+                          );
+                      Navigator.pop(context);
+                      debugPrint(task);
+                      debugPrint(desc);
+                      debugPrint(GUIDGen.generate());
+                    }
                   },
                   child: const Text('Save'),
                 ),
