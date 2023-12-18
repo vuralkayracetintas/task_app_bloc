@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/product/function/ads_function.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 
@@ -13,6 +14,7 @@ class PendingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AdsFunction adsFunction = AdsFunction();
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.pendingTask;
@@ -28,6 +30,7 @@ class PendingScreen extends StatelessWidget {
               ),
               TaskListWidget(taskList: taskList),
               SizedBox(height: context.sized.height * 0.09),
+              adsFunction.getAd(),
             ],
           ),
         );

@@ -4,6 +4,7 @@ import 'package:task_app/feature/screens/add_task_screen.dart';
 import 'package:task_app/feature/screens/completed_task_screen.dart';
 import 'package:task_app/feature/screens/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending_screen.dart';
+import 'package:task_app/product/function/ads_function.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
 
@@ -16,6 +17,7 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
+  final AdsFunction adsFunction = AdsFunction();
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -34,7 +36,14 @@ class _TabScreenState extends State<TabScreen> {
   var _selectedPage = 0;
 
   @override
+  void initState() {
+    super.initState();
+    // adsFunction.loadIntestitialAd();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final AdsFunction adsFunction = AdsFunction();
     return Scaffold(
       // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
@@ -43,6 +52,7 @@ class _TabScreenState extends State<TabScreen> {
       ),
       drawer: const DrawerWidget(),
       body: _pages[_selectedPage]['pageName'],
+
       floatingActionButton: _selectedPage == 0
           ? FloatingActionButton(
               tooltip: 'Add Task',

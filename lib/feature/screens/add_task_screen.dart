@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/product/function/ads_function.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/service/guid.dart';
 
@@ -13,6 +14,8 @@ class AddTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
+    AdsFunction adsFunction = AdsFunction();
+    bool adShown = false;
     return Container(
       color: context.general.appTheme.backgroundColor,
       padding: context.padding.onlyBottomHigh,
@@ -58,7 +61,16 @@ class AddTaskScreen extends StatelessWidget {
                   child: const Text('Cancel'),
                 ),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    //! add ads
+                    // googleAds.showInterstitialAd2();
+                    if (!adShown) {
+                      // googleAds.showInterstitialAd2();
+                      adsFunction.loadIntestitialAd();
+                      // Mark that the ad has been shown
+                      adShown = true;
+                    }
+
                     var task = titleController.text;
                     var desc = descriptionController.text;
                     context.read<TasksBloc>().add(AddTask(
