@@ -14,7 +14,7 @@ class AddTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
-    AdsFunction adsFunction = AdsFunction();
+    // AdsFunction adsFunction = AdsFunction();
     bool adShown = false;
     return Container(
       color: context.general.appTheme.backgroundColor,
@@ -82,7 +82,7 @@ class AddTaskScreen extends StatelessWidget {
                       );
                     } else {
                       if (!adShown) {
-                        adsFunction.loadIntestitialAd();
+                        // adsFunction.loadIntestitialAd();
                         adShown = true;
                       }
 
