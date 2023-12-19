@@ -14,7 +14,7 @@ class PendingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AdsFunction adsFunction = AdsFunction();
+    // final AdsFunction adsFunction = AdsFunction();
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> taskList = state.pendingTask;
@@ -30,7 +30,7 @@ class PendingScreen extends StatelessWidget {
               ),
               TaskListWidget(taskList: taskList),
               SizedBox(height: context.sized.height * 0.09),
-              adsFunction.getAd(),
+              // adsFunction.getAd(),
             ],
           ),
         );

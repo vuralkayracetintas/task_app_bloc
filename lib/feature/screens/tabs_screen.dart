@@ -17,7 +17,7 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
-  final AdsFunction adsFunction = AdsFunction();
+  // final AdsFunction adsFunction = AdsFunction();
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
