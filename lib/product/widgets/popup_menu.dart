@@ -25,23 +25,23 @@ class PopupMenu extends StatelessWidget {
         itemBuilder: task.isDeleted == false
             ? (context) => [
                   PopupMenuItem(
-                    onTap: null,
+                    onTap: editTask,
                     child: TextButton.icon(
-                        onPressed: editTask,
+                        onPressed: null,
                         icon: const Icon(Icons.edit),
                         label: const Text('Edit')),
                   ),
-                  PopupMenuItem(
-                    onTap: likeOrDislike,
-                    child: TextButton.icon(
-                        onPressed: null,
-                        icon: task.isFavorite == false
-                            ? const Icon(Icons.bookmark_add_outlined)
-                            : const Icon(Icons.bookmark_remove),
-                        label: task.isFavorite == false
-                            ? const Text('Add to Favorite')
-                            : const Text('Remove from Favorite')),
-                  ),
+                  // PopupMenuItem(
+                  //   onTap: likeOrDislike,
+                  //   child: TextButton.icon(
+                  //       onPressed: null,
+                  //       icon: task.isFavorite == false
+                  //           ? const Icon(Icons.bookmark_add_outlined)
+                  //           : const Icon(Icons.bookmark_remove),
+                  //       label: task.isFavorite == false
+                  //           ? const Text('Add to Favorite')
+                  //           : const Text('Remove from Favorite')),
+                  // ),
                   PopupMenuItem(
                     onTap: cancelOrDeleteCallBack,
                     child: TextButton.icon(

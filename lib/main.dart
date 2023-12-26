@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<SwitchBloc, SwitchState>(
         builder: (context, state) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'Notedle',
             // theme: ThemeData(
             //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             //   useMaterial3: true,
