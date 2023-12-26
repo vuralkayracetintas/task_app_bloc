@@ -1,0 +1,31 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "iPhone SE (3rd generation) (mobile)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "437E35D6-4E5B-4A97-BD13-72B3E5EA7DE1"
+    },
+    {
+      "name": "iPhone 15 Pro (mobile)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "9DD442CD-B3A3-48E0-A40D-9D04B8B0AD5A"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "All Devices",
+      "configurations": [
+        "iPhone SE (3rd generation) (mobile)",
+        "iPhone 15 Pro (mobile)"
+      ]
+    }
+  ]
+}

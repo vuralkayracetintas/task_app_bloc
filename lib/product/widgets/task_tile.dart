@@ -26,6 +26,10 @@ class _TaskTileState extends State<TaskTile> {
         : context.read<TasksBloc>().add(RemoveTask(task: task));
   }
 
+  void isFavorite(BuildContext context, Task task) {
+    context.read<TasksBloc>().add(FavoriteOrUnFavoriteTask(task: widget.task));
+  }
+
   void _editTask(
     BuildContext context,
   ) {
@@ -49,9 +53,18 @@ class _TaskTileState extends State<TaskTile> {
           Expanded(
             child: Row(
               children: [
+                // widget.task.isFavorite == false
+                //     ? const Icon(Icons.star_border_outlined)
+                //     : const Icon(Icons.star),
                 widget.task.isFavorite == false
-                    ? const Icon(Icons.star_border_outlined)
-                    : const Icon(Icons.star),
+                    ? FavoriteController(
+                        widget: widget,
+                        icon: Icon(Icons.star_border_outlined),
+                      )
+                    : FavoriteController(
+                        widget: widget,
+                        icon: Icon(Icons.star),
+                      ),
                 SizedBox(
                   width: context.sized.width * 0.05,
                 ),
@@ -100,7 +113,7 @@ class _TaskTileState extends State<TaskTile> {
                           .read<TasksBloc>()
                           .add(FavoriteOrUnFavoriteTask(task: widget.task)),
                       editTask: () {
-                        Navigator.pop(context);
+                        // Navigator.pop(context);
                         _editTask(context);
                       },
                       restoreTask: () => context
@@ -150,5 +163,27 @@ class _TaskTileState extends State<TaskTile> {
     //             ],
     //           ),
     //         ));
+  }
+}
+
+class FavoriteController extends StatelessWidget {
+  const FavoriteController({
+    super.key,
+    required this.widget,
+    required this.icon,
+  });
+
+  final TaskTile widget;
+  final Icon icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          context
+              .read<TasksBloc>()
+              .add(FavoriteOrUnFavoriteTask(task: widget.task));
+        },
+        icon: icon);
   }
 }

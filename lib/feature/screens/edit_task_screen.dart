@@ -51,26 +51,29 @@ class EditTaskScreen extends StatelessWidget {
                   child: const Text('Cancel'),
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      var task = titleController.text;
-                      var desc = descriptionController.text;
-                      var editedTask = Task(
-                        title: task,
-                        description: desc,
-                        id: oldTask.id,
-                        isDone: false,
-                        isFavorite: oldTask.isFavorite,
-                        date: DateTime.now().toString(),
-                      );
-                      context.read<TasksBloc>().add(
-                          EditTasks(oldTask: oldTask, newTask: editedTask));
-                      Navigator.pop(context);
-
-                      debugPrint(GUIDGen.generate());
-                    },
-                    child: const Text('Save'))
+                  onPressed: () {
+                    var task = titleController.text;
+                    var desc = descriptionController.text;
+                    var editedTask = Task(
+                      title: task,
+                      description: desc,
+                      id: oldTask.id,
+                      isDone: false,
+                      isFavorite: oldTask.isFavorite,
+                      date: DateTime.now().toString(),
+                    );
+                    context
+                        .read<TasksBloc>()
+                        .add(EditTasks(oldTask: oldTask, newTask: editedTask));
+                    // Navigator.pop(context);
+                    context.route.navigation.pop();
+                    debugPrint(GUIDGen.generate());
+                  },
+                  child: const Text('Save'),
+                )
               ],
             ),
+            SizedBox(height: context.sized.height * 0.3)
           ],
         ),
       ),
