@@ -17,6 +17,13 @@
       "type": "dart",
       "program": "lib/main.dart",
       "deviceId": "9DD442CD-B3A3-48E0-A40D-9D04B8B0AD5A"
+    },
+    {
+      "name": "macOS (desktop)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "macos"
     }
   ],
   "compounds": [
