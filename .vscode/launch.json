@@ -18,13 +18,7 @@
       "program": "lib/main.dart",
       "deviceId": "9DD442CD-B3A3-48E0-A40D-9D04B8B0AD5A"
     },
-    {
-      "name": "iPad Pro (12.9-inch) (6th generation) (mobile)",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "deviceId": "8C5FFCC8-F056-410A-96D3-BA9AA9059705"
-    }
+
   ],
   "compounds": [
     {
