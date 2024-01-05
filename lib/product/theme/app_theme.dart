@@ -42,6 +42,7 @@ class AppThemes {
     //
 
     AppTheme.lightTheme: ThemeData(
+      cardColor: Color(0xffAAD7D9),
       useMaterial3: true,
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
@@ -55,7 +56,8 @@ class AppThemes {
       backgroundColor: const Color(0xFFE5E5E5),
       dividerColor: const Color(0xff757575),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.grey,
+        // backgroundColor: Colors.grey,
+        backgroundColor: Color(0xff769FCD),
         foregroundColor: Colors.black,
       ),
       textButtonTheme: TextButtonThemeData(
@@ -64,7 +66,9 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.grey,
+        // backgroundColor: Colors.grey,
+        backgroundColor: Color(0xff769FCD),
+
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
       ),
