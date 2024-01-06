@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/feature/screens/recycle_bin.dart';
+import 'package:task_app/feature/screens/recycle/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
 
 class DrawerWidget extends StatelessWidget {

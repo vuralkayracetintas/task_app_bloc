@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/feature/screens/edit_task_screen.dart';
+import 'package:task_app/feature/screens/editTask/edit_task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/popup_menu.dart';
 

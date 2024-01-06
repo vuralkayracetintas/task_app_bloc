@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:task_app/feature/screens/add_task_screen.dart';
-import 'package:task_app/feature/screens/completed_task_screen.dart';
-import 'package:task_app/feature/screens/demo/demo_panding.dart';
-import 'package:task_app/feature/screens/favorite_task_screen.dart';
-import 'package:task_app/feature/screens/pending_screen.dart';
+import 'package:task_app/feature/screens/addTask/add_task_screen.dart';
+import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
+import 'package:task_app/feature/screens/pending/pending_body_view.dart';
+import 'package:task_app/feature/screens/favorite/favorite_task_screen.dart';
+import 'package:task_app/feature/screens/pending/pending_screen.dart';
 import 'package:task_app/product/function/ads_function.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
