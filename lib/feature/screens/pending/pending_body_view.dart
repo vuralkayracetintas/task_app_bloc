@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/product/constants/color_constants.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/card_action_button.dart';
 import 'package:task_app/product/widgets/card_top_widget.dart';
@@ -30,13 +32,16 @@ class PendingTaskBody extends StatelessWidget {
                             // height: context.sized.height * 0.3,
                             child: Card(
                               elevation: 5,
+
                               // shape: RoundedRectangleBorder(
                               //   borderRadius: BorderRadius.circular(20),
                               // ),
                               // shadowColor: Colors.black,
                               // surfaceTintColor: Colors.black,
                               // color: Colors.blueGrey[500],
-                              color: Color(0xffF7FBFC),
+                              color: context.general.appTheme.cardColor,
+                              // color: Color(0xffF7FBFC),
+                              // color: ColorConstants.purple3,
                               // color: context.general.appTheme
                               // .floatingActionButtonTheme.backgroundColor,
                               child: Column(
@@ -67,21 +72,23 @@ class PendingTaskBody extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         CardActionButton(
-                                          icon: Icon(Icons.edit),
+                                          icon: const Icon(Icons.edit),
                                           onPressed: () {},
                                         ),
                                         CardActionButton(
-                                          icon: Icon(Icons.delete),
+                                          icon: const Icon(Icons.delete),
                                           onPressed: () {},
                                         ),
                                         CardActionButton(
-                                          icon: Icon(Icons.delete),
+                                          icon: const Icon(Icons.delete),
                                           onPressed: () {},
                                         )
                                       ],

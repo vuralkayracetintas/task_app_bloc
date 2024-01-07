@@ -9,6 +9,7 @@ enum AppTheme {
 class AppThemes {
   static final appThemeData = {
     AppTheme.darkTheme: ThemeData(
+      cardColor: ColorConstants.purple3,
       drawerTheme: const DrawerThemeData(
         backgroundColor: Colors.grey,
       ),
@@ -19,7 +20,8 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.black,
       brightness: Brightness.dark,
-      backgroundColor: const Color(0xFF212121),
+      // backgroundColor: const Color(0xFF212121),
+
       dividerColor: Colors.black54,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         // backgroundColor: Colors.grey,
@@ -32,17 +34,16 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: ColorConstants.purple,
-        selectedItemColor: Colors.black,
+        backgroundColor: ColorConstants.purple4,
+        // backgroundColor: Colors.red,
+        selectedItemColor: ColorConstants.lightPurple,
         unselectedItemColor: Colors.white,
       ),
     ),
 
     //
-    //
-
     AppTheme.lightTheme: ThemeData(
-      cardColor: Color(0xffAAD7D9),
+      cardColor: Color(0xffF7FBFC),
       useMaterial3: true,
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,

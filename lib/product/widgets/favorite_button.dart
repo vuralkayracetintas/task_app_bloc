@@ -14,10 +14,13 @@ class FavoriteButton extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: context.sized.height * 0.025,
+          backgroundColor: context
+              .general.appTheme.floatingActionButtonTheme.backgroundColor,
         ),
         task.isFavorite == false
             ? IconButton(
                 iconSize: context.sized.height * 0.02,
+                color: Colors.white,
                 onPressed: () {
                   context
                       .read<TasksBloc>()
