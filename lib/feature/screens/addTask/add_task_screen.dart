@@ -51,11 +51,14 @@ class AddTaskScreen extends StatelessWidget {
               minLines: 3,
               maxLines: 5,
               keyboardType: TextInputType.multiline,
-              textInputAction: TextInputAction.done,
+              textInputAction: TextInputAction.newline,
               decoration: const InputDecoration(
                 label: Text('description'),
                 border: OutlineInputBorder(),
               ),
+            ),
+            SizedBox(
+              height: context.sized.height * 0.03,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -71,14 +74,14 @@ class AddTaskScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Warning'),
-                            content: Text('Title cannot be empty.'),
+                            title: const Text('Warning'),
+                            content: const Text('Title cannot be empty.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
-                                child: Text('Ok'),
+                                child: const Text('Ok'),
                               ),
                             ],
                           );
