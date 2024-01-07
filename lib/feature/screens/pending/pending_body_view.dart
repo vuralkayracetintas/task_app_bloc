@@ -80,6 +80,10 @@ class PendingTaskBody extends StatelessWidget {
                                           icon: Icon(Icons.delete),
                                           onPressed: () {},
                                         ),
+                                        CardActionButton(
+                                          icon: Icon(Icons.delete),
+                                          onPressed: () {},
+                                        )
                                       ],
                                     ),
                                   ),

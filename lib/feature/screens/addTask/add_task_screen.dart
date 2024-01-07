@@ -15,6 +15,7 @@ class AddTaskScreen extends StatelessWidget {
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     // AdsFunction adsFunction = AdsFunction();
+
     bool adShown = false;
     return Container(
       color: context.general.appTheme.backgroundColor,
@@ -31,6 +32,8 @@ class AddTaskScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               controller: titleController,
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.next,
               decoration: const InputDecoration(
                 label: Text('Title'),
                 // focusedBorder:
@@ -47,7 +50,8 @@ class AddTaskScreen extends StatelessWidget {
               controller: descriptionController,
               minLines: 3,
               maxLines: 5,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.multiline,
+              textInputAction: TextInputAction.done,
               decoration: const InputDecoration(
                 label: Text('description'),
                 border: OutlineInputBorder(),
