@@ -106,20 +106,22 @@ class _TaskTileState extends State<TaskTile> {
                             width: context.sized.width * 0.05,
                           ),
                     PopupMenu(
-                      task: widget.task,
-                      cancelOrDeleteCallBack: () =>
-                          removeOrDelete(context, widget.task),
-                      likeOrDislike: () => context
-                          .read<TasksBloc>()
-                          .add(FavoriteOrUnFavoriteTask(task: widget.task)),
-                      editTask: () {
-                        // Navigator.pop(context);
-                        _editTask(context);
-                      },
-                      restoreTask: () => context
-                          .read<TasksBloc>()
-                          .add(RestoreTasks(task: widget.task)),
-                    ),
+                        task: widget.task,
+                        cancelOrDeleteCallBack: () =>
+                            removeOrDelete(context, widget.task),
+                        likeOrDislike: () => context
+                            .read<TasksBloc>()
+                            .add(FavoriteOrUnFavoriteTask(task: widget.task)),
+                        editTask: () {
+                          // Navigator.pop(context);
+                          _editTask(context);
+                        },
+                        restoreTask: () => context
+                            .read<TasksBloc>()
+                            .add(RestoreTasks(task: widget.task)),
+                        completeTask: () => context
+                            .read<TasksBloc>()
+                            .add(UpdateTask(task: widget.task))),
                   ],
                 )
               ],

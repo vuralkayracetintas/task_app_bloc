@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 
@@ -10,18 +11,22 @@ class PopupMenu extends StatelessWidget {
     required this.likeOrDislike,
     required this.editTask,
     required this.restoreTask,
+    required this.completeTask,
   });
   final Task task;
   final Function() cancelOrDeleteCallBack;
   final Function() likeOrDislike;
   final Function() editTask;
-
   final Function() restoreTask;
+
+  final Function() completeTask;
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
         // color: ColorConstants.tiffaniyBlue,
         // color: Colors.white,
+        color:
+            context.general.appTheme.bottomNavigationBarTheme.backgroundColor,
         itemBuilder: task.isDeleted == false
             ? (context) => [
                   PopupMenuItem(
@@ -48,6 +53,13 @@ class PopupMenu extends StatelessWidget {
                         onPressed: null,
                         icon: const Icon(Icons.delete),
                         label: const Text('Delete')),
+                  ),
+                  PopupMenuItem(
+                    onTap: completeTask,
+                    child: TextButton.icon(
+                        onPressed: null,
+                        icon: const Icon(Icons.check),
+                        label: const Text('Complete')),
                   ),
                 ]
             : (context) => [
