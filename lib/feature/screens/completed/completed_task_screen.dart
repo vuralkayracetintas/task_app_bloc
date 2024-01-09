@@ -26,7 +26,7 @@ class CompletedScreen extends StatelessWidget {
               ),
               // TaskListWidget(taskList: taskList)
               CompletedTaskBody(
-                isCompleted: false,
+                isCompleted: true,
               )
             ],
           ),

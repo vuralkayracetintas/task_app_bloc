@@ -45,9 +45,13 @@ class CardTop extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          FavoriteButton(
-            task: task,
-          ),
+          (task.isDeleted == false)
+              ? FavoriteButton(
+                  task: task,
+                )
+              : SizedBox(
+                  width: context.sized.width * 0.1,
+                ),
           DateTextWidget(task: task),
           PopupMenu(
             task: task,
