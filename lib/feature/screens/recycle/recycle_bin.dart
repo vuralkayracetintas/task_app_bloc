@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/feature/screens/recycle/recycle_bin_body.dart';
 import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
 class RecycleBin extends StatelessWidget {
@@ -26,11 +27,15 @@ class RecycleBin extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
-                  child: TaskListWidget(
-                    taskList: state.removedTasks,
-                    isCompleted: false,
-                  ),
+                // child: SingleChildScrollView(
+                //     // child: TaskListWidget(
+                //     //   taskList: state.removedTasks,
+                //     //   isCompleted: false,
+                //     // ),
+
+                //     )
+                child: RecycleBinBody(
+                  isCompleted: false,
                 ),
               ),
               SizedBox(

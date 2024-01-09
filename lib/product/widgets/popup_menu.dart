@@ -57,16 +57,17 @@ class PopupMenu extends StatelessWidget {
                         icon: const Icon(Icons.delete),
                         label: const Text('Delete')),
                   ),
-                  if (isCompleted == false)
-                    PopupMenuItem(
-                      onTap: completeTask,
-                      child: TextButton.icon(
-                        onPressed: null,
-                        icon: const Icon(Icons.check),
-                        label:
-                            isCompleted ? Text('Complete') : Text('Uncomplete'),
-                      ),
-                    )
+                  // if (isCompleted == false)
+                  PopupMenuItem(
+                    onTap: completeTask,
+                    child: TextButton.icon(
+                      onPressed: null,
+                      icon: const Icon(Icons.check),
+                      label: isCompleted == false
+                          ? Text('Complete')
+                          : Text('Uncomplete'),
+                    ),
+                  )
                 ]
             : (context) => [
                   PopupMenuItem(
