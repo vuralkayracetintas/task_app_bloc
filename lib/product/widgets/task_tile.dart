@@ -7,14 +7,14 @@ import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/popup_menu.dart';
 
 class TaskTile extends StatefulWidget {
-  TaskTile({
+  const TaskTile({
     super.key,
     required this.task,
-    required this.isComplated,
+    required this.isCompleted,
   });
 
   final Task task;
-  bool isComplated;
+  final bool isCompleted;
   @override
   State<TaskTile> createState() => _TaskTileState();
 }
@@ -56,15 +56,15 @@ class _TaskTileState extends State<TaskTile> {
                 // widget.task.isFavorite == false
                 //     ? const Icon(Icons.star_border_outlined)
                 //     : const Icon(Icons.star),
-                widget.task.isFavorite == false
-                    ? FavoriteController(
-                        widget: widget,
-                        icon: Icon(Icons.star_border_outlined),
-                      )
-                    : FavoriteController(
-                        widget: widget,
-                        icon: Icon(Icons.star),
-                      ),
+                // widget.task.isFavorite == false
+                //     ? FavoriteController(
+                //         widget: widget,
+                //         icon: Icon(Icons.star_border_outlined),
+                //       )
+                //     : FavoriteController(
+                //         widget: widget,
+                //         icon: Icon(Icons.star),
+                //       ),
                 SizedBox(
                   width: context.sized.width * 0.05,
                 ),
@@ -86,44 +86,46 @@ class _TaskTileState extends State<TaskTile> {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    widget.isComplated == false
-                        ? // Yeni eklenen satır
-                        Checkbox(
-                            activeColor: context.general.appTheme
-                                .floatingActionButtonTheme.backgroundColor,
-                            value: widget.task.isDone,
-                            onChanged: widget.task.isDeleted == false
-                                ? (value) {
-                                    context
-                                        .read<TasksBloc>()
-                                        .add(UpdateTask(task: widget.task));
-                                  }
-                                : null,
-                          )
-                        : SizedBox(
-                            width: context.sized.width * 0.05,
-                          ),
-                    PopupMenu(
-                        task: widget.task,
-                        cancelOrDeleteCallBack: () =>
-                            removeOrDelete(context, widget.task),
-                        likeOrDislike: () => context
-                            .read<TasksBloc>()
-                            .add(FavoriteOrUnFavoriteTask(task: widget.task)),
-                        editTask: () {
-                          // Navigator.pop(context);
-                          _editTask(context);
-                        },
-                        restoreTask: () => context
-                            .read<TasksBloc>()
-                            .add(RestoreTasks(task: widget.task)),
-                        completeTask: () => context
-                            .read<TasksBloc>()
-                            .add(UpdateTask(task: widget.task))),
-                  ],
-                )
+                if (widget.task.isDeleted == false)
+                  Row(
+                    children: [
+                      widget.isCompleted == false
+                          ? // Yeni eklenen satır
+                          Checkbox(
+                              activeColor: context.general.appTheme
+                                  .floatingActionButtonTheme.backgroundColor,
+                              value: widget.task.isDone,
+                              onChanged: widget.task.isDeleted == false
+                                  ? (value) {
+                                      context
+                                          .read<TasksBloc>()
+                                          .add(UpdateTask(task: widget.task));
+                                    }
+                                  : null,
+                            )
+                          : SizedBox(
+                              width: context.sized.width * 0.05,
+                            ),
+                      // PopupMenu(
+                      //   task: widget.task,
+                      //   cancelOrDeleteCallBack: () =>
+                      //       removeOrDelete(context, widget.task),
+                      //   likeOrDislike: () => context
+                      //       .read<TasksBloc>()
+                      //       .add(FavoriteOrUnFavoriteTask(task: widget.task)),
+                      //   editTask: () {
+                      //     // Navigator.pop(context);
+                      //     _editTask(context);
+                      //   },
+                      //   restoreTask: () => context
+                      //       .read<TasksBloc>()
+                      //       .add(RestoreTasks(task: widget.task)),
+                      //   completeTask: () => context
+                      //       .read<TasksBloc>()
+                      //       .add(UpdateTask(task: widget.task)),
+                      // ),
+                    ],
+                  )
               ],
             ),
           )

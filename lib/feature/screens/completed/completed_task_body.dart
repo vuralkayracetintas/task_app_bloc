@@ -4,8 +4,8 @@ import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/card_top_widget.dart';
 
-class PendingTaskBody extends StatelessWidget {
-  const PendingTaskBody({
+class CompletedTaskBody extends StatelessWidget {
+  const CompletedTaskBody({
     Key? key,
     required this.isCompleted,
   });
@@ -15,7 +15,7 @@ class PendingTaskBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(builder: (context, state) {
-      List<Task> taskList = state.pendingTask;
+      List<Task> taskList = state.completedTask;
 
       return SingleChildScrollView(
         child: Column(

@@ -12,6 +12,7 @@ class PopupMenu extends StatelessWidget {
     required this.editTask,
     required this.restoreTask,
     required this.completeTask,
+    required this.isCompleted,
   });
   final Task task;
   final Function() cancelOrDeleteCallBack;
@@ -20,6 +21,8 @@ class PopupMenu extends StatelessWidget {
   final Function() restoreTask;
 
   final Function() completeTask;
+
+  final bool isCompleted;
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
@@ -54,13 +57,16 @@ class PopupMenu extends StatelessWidget {
                         icon: const Icon(Icons.delete),
                         label: const Text('Delete')),
                   ),
-                  PopupMenuItem(
-                    onTap: completeTask,
-                    child: TextButton.icon(
+                  if (isCompleted == false)
+                    PopupMenuItem(
+                      onTap: completeTask,
+                      child: TextButton.icon(
                         onPressed: null,
                         icon: const Icon(Icons.check),
-                        label: const Text('Complete')),
-                  ),
+                        label:
+                            isCompleted ? Text('Complete') : Text('Uncomplete'),
+                      ),
+                    )
                 ]
             : (context) => [
                   PopupMenuItem(

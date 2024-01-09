@@ -5,10 +5,10 @@ import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/widgets/task_tile.dart';
 
 class TaskListWidget extends StatelessWidget {
-  const TaskListWidget({super.key, required this.taskList, this.isComplated});
+  const TaskListWidget({super.key, required this.taskList, this.isCompleted});
 
   final List<Task> taskList;
-  final bool? isComplated;
+  final bool? isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class TaskListWidget extends StatelessWidget {
                 value: task.id,
                 headerBuilder: (context, isOpen) => TaskTile(
                       task: task,
-                      isComplated: isComplated ?? false,
+                      isCompleted: isCompleted ?? false,
                     ),
                 body: Padding(
                   padding: context.padding.low,

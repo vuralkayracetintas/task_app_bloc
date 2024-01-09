@@ -11,11 +11,9 @@ import 'package:task_app/product/widgets/favorite_button.dart';
 import 'package:task_app/product/widgets/popup_menu.dart';
 
 class CardTop extends StatelessWidget {
-  const CardTop({
-    super.key,
-    required this.task,
-  });
+  const CardTop({super.key, required this.task, required this.isCompleted});
   final Task task;
+  final bool isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +50,21 @@ class CardTop extends StatelessWidget {
           ),
           DateTextWidget(task: task),
           PopupMenu(
-              task: task,
-              cancelOrDeleteCallBack: () => removeOrDelete(context, task),
-              likeOrDislike: () => context
-                  .read<TasksBloc>()
-                  .add(FavoriteOrUnFavoriteTask(task: task)),
-              editTask: () {
-                // Navigator.pop(context);
-                editTask(context);
-              },
-              restoreTask: () =>
-                  context.read<TasksBloc>().add(RestoreTasks(task: task)),
-              completeTask: () =>
-                  context.read<TasksBloc>().add(UpdateTask(task: task)))
+            task: task,
+            isCompleted: isCompleted,
+            cancelOrDeleteCallBack: () => removeOrDelete(context, task),
+            likeOrDislike: () => context
+                .read<TasksBloc>()
+                .add(FavoriteOrUnFavoriteTask(task: task)),
+            editTask: () {
+              // Navigator.pop(context);
+              editTask(context);
+            },
+            restoreTask: () =>
+                context.read<TasksBloc>().add(RestoreTasks(task: task)),
+            completeTask: () =>
+                context.read<TasksBloc>().add(UpdateTask(task: task)),
+          )
         ],
       ),
     );
