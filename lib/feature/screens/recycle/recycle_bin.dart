@@ -29,7 +29,7 @@ class RecycleBin extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: TaskListWidget(
                     taskList: state.removedTasks,
-                    isComplated: false,
+                    isCompleted: false,
                   ),
                 ),
               ),

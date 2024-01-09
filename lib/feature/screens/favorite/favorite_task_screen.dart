@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/feature/screens/favorite/favorite_task_body.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 
@@ -30,9 +31,12 @@ class FavoriteScreen extends StatelessWidget {
                       : const Text('No Favorite Task'),
                 ),
               ),
-              TaskListWidget(
-                taskList: taskList,
-                isComplated: true,
+              // TaskListWidget(
+              //   taskList: taskList,
+              //   isComplated: true,
+              // ),
+              FavoriteTaskBody(
+                isCompleted: true,
               )
             ],
           ),

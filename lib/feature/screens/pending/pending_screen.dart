@@ -24,7 +24,9 @@ class PendingScreen extends StatelessWidget {
                       '${state.pendingTask.length} Tasks ${state.completedTask.length} Completed'),
                 ),
               ),
-              PendingTaskBody(),
+              PendingTaskBody(
+                isCompleted: false,
+              ),
               // TaskListWidget(taskList: taskList),
               SizedBox(height: context.sized.height * 0.09),
               // adsFunction.getAd(),
