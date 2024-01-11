@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/feature/screens/editTask/edit_task_screen.dart';
 import 'package:task_app/product/models/task_model.dart';
-import 'package:task_app/product/widgets/popup_menu.dart';
 
 class TaskTile extends StatefulWidget {
   const TaskTile({
@@ -30,18 +28,18 @@ class _TaskTileState extends State<TaskTile> {
     context.read<TasksBloc>().add(FavoriteOrUnFavoriteTask(task: widget.task));
   }
 
-  void _editTask(
-    BuildContext context,
-  ) {
-    showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        builder: (context) => SingleChildScrollView(
-              child: EditTaskScreen(
-                oldTask: widget.task,
-              ),
-            ));
-  }
+  // void _editTask(
+  //   BuildContext context,
+  // ) {
+  //   showModalBottomSheet(
+  //       context: context,
+  //       isScrollControlled: true,
+  //       builder: (context) => SingleChildScrollView(
+  //             child: EditTaskScreen(
+  //               oldTask: widget.task,
+  //             ),
+  //           ));
+  // }
 
   @override
   Widget build(BuildContext context) {

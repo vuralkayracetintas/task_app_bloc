@@ -6,7 +6,7 @@ import 'package:task_app/product/widgets/card_top_widget.dart';
 
 class PendingTaskBody extends StatelessWidget {
   const PendingTaskBody({
-    Key? key,
+    super.key,
     required this.isCompleted,
   });
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
 class CardActionButton extends StatelessWidget {
-  CardActionButton({
+  const CardActionButton({
     super.key,
     required this.icon,
     required this.onPressed,
   });
-  Icon icon;
-  Function() onPressed;
+  final Icon icon;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {

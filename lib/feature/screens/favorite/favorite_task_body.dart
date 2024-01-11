@@ -6,7 +6,7 @@ import 'package:task_app/product/widgets/card_top_widget.dart';
 
 class FavoriteTaskBody extends StatelessWidget {
   const FavoriteTaskBody({
-    Key? key,
+    super.key,
     required this.isCompleted,
   });
 

@@ -24,7 +24,7 @@ class PendingScreen extends StatelessWidget {
                       '${state.pendingTask.length} Tasks ${state.completedTask.length} Completed'),
                 ),
               ),
-              PendingTaskBody(
+              const PendingTaskBody(
                 isCompleted: false,
               ),
               // TaskListWidget(taskList: taskList),

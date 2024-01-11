@@ -64,8 +64,8 @@ class PopupMenu extends StatelessWidget {
                       onPressed: null,
                       icon: const Icon(Icons.check),
                       label: isCompleted == false
-                          ? Text('Complete')
-                          : Text('Uncomplete'),
+                          ? const Text('Complete')
+                          : const Text('Uncomplete'),
                     ),
                   )
                 ]

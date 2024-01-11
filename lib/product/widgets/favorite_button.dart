@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/blocs/task_bloc/tasks_bloc.dart';
 import 'package:task_app/product/models/task_model.dart';
 
 class FavoriteButton extends StatelessWidget {
-  FavoriteButton({super.key, required this.task});
-  Task task;
+  const FavoriteButton({super.key, required this.task});
+  final Task task;
   @override
   Widget build(BuildContext context) {
     return Stack(

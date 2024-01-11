@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/completed/completed_task_body.dart';
 import 'package:task_app/product/models/task_model.dart';
-import 'package:task_app/product/widgets/tasks_list_widget.dart';
 
 class CompletedScreen extends StatelessWidget {
   const CompletedScreen({super.key});
@@ -25,7 +24,7 @@ class CompletedScreen extends StatelessWidget {
                 ),
               ),
               // TaskListWidget(taskList: taskList)
-              CompletedTaskBody(
+              const CompletedTaskBody(
                 isCompleted: true,
               )
             ],

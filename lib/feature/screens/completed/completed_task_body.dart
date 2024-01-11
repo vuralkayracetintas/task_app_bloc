@@ -6,7 +6,7 @@ import 'package:task_app/product/widgets/card_top_widget.dart';
 
 class CompletedTaskBody extends StatelessWidget {
   const CompletedTaskBody({
-    Key? key,
+    super.key,
     required this.isCompleted,
   });
 

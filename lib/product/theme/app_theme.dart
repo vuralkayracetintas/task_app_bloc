@@ -43,7 +43,7 @@ class AppThemes {
 
     //
     AppTheme.lightTheme: ThemeData(
-      cardColor: Color(0xffF7FBFC),
+      cardColor: const Color(0xffF7FBFC),
       useMaterial3: true,
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
