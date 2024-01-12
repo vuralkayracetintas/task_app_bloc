@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 class AdsService {
   static String get bannerAdUnitId {
     if (Platform.isAndroid) {
@@ -20,4 +22,14 @@ class AdsService {
       throw UnsupportedError('Unsupported platform');
     }
   }
+
+  static final BannerAdListener bannerListener = BannerAdListener(
+    onAdLoaded: (ad) => print('Ad loaded: ${ad.adUnitId}.'),
+    onAdFailedToLoad: (ad, error) {
+      ad.dispose();
+      print('Ad failed to load: ${ad.adUnitId}, $error');
+    },
+    onAdOpened: (ad) => print('Ad opened: ${ad.adUnitId}.'),
+    onAdClosed: (ad) => print('Ad closed: ${ad.adUnitId}.'),
+  );
 }
