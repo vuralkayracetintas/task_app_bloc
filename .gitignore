@@ -49,4 +49,4 @@ app.*.map.json
 /android/app/release
 lib/product/service/ads_service.dart
 /android/app/src/main/AndroidManifest.xml
-/task_app/ios/Runner/Info.plist
+/ios/Runner/Info.plist
