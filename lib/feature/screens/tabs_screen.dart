@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/feature/screens/addTask/add_task_screen.dart';
 import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
 
 import 'package:task_app/feature/screens/favorite/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending/pending_screen.dart';
+import 'package:task_app/product/service/ads_service.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
 
@@ -18,27 +20,50 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   // final AdsFunction adsFunction = AdsFunction();
+  BannerAd? bannerAd;
+
+  // late List<Map<String, dynamic>> _pages;
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        builder: (context) => const SingleChildScrollView(
+        builder: (context) => SingleChildScrollView(
               child: AddTaskScreen(),
             ));
   }
 
   final List<Map<String, dynamic>> _pages = [
-    {'pageName': const PendingScreen(), 'title': "Pending Task"},
+    {'pageName': PendingScreen(), 'title': "Pending Task"},
     {'pageName': const CompletedScreen(), 'title': "Completed Task"},
     {'pageName': const FavoriteScreen(), 'title': "Favorite Task"}
   ];
 
   var _selectedPage = 0;
 
+  void _createBanner() {
+    bannerAd = BannerAd(
+      size: AdSize.banner,
+      adUnitId: AdsService.bannerAdUnitId,
+      listener: AdsService.bannerListener,
+      request: const AdRequest(),
+    )..load();
+  }
+
+  // void _createInterstitialAd() {
+  //   InterstitialAd.load(
+  //     adUnitId: AdsService.interstitialAdUnitId,
+  //     request: const AdRequest(),
+  //     adLoadCallback: InterstitialAdLoadCallback(
+  //       onAdLoaded: (InterstitialAd ad) => _interstitialAd = ad,
+  //       onAdFailedToLoad: (LoadAdError error) => _interstitialAd = null,
+  //     ),
+  //   );
+  // }
+
   @override
   void initState() {
     super.initState();
-    // adsFunction.loadIntestitialAd();
+    _createBanner();
   }
 
   @override
@@ -63,31 +88,44 @@ class _TabScreenState extends State<TabScreen> {
               ),
             )
           : null,
-      bottomNavigationBar: BottomNavigationBar(
-        // type: BottomNavigationBarType.shifting,
+      bottomNavigationBar: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          bannerAd == null
+              ? Container()
+              : Container(
+                  height: bannerAd!.size.height.toDouble(),
+                  width: bannerAd!.size.width.toDouble(),
+                  child: AdWidget(ad: bannerAd!),
+                ),
+          BottomNavigationBar(
+            // type: BottomNavigationBarType.shifting,
 
-        elevation: 10,
-        currentIndex: _selectedPage,
-        onTap: (index) {
-          setState(() {
-            _selectedPage = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.list,
-            ),
-            label: _pages[0]['title'],
+            elevation: 10,
+            currentIndex: _selectedPage,
+            onTap: (index) {
+              setState(() {
+                _selectedPage = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: const Icon(
+                  Icons.list,
+                ),
+                label: _pages[0]['title'],
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.done),
+                label: _pages[1]['title'],
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.favorite),
+                label: _pages[2]['title'],
+              )
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.done),
-            label: _pages[1]['title'],
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.favorite),
-            label: _pages[2]['title'],
-          )
         ],
       ),
     );

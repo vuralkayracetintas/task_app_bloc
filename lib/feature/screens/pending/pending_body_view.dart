@@ -39,7 +39,6 @@ class PendingTaskBody extends StatelessWidget {
                                     task: e,
                                     isCompleted: isCompleted,
                                   ),
-
                                   Center(
                                     child: Column(
                                       children: [
@@ -85,26 +84,6 @@ class PendingTaskBody extends StatelessWidget {
                                   const SizedBox(
                                     height: 20,
                                   ),
-
-                                  // Padding(
-                                  //   padding: const EdgeInsets.all(8.0),
-                                  //   child: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceEvenly,
-                                  //     crossAxisAlignment:
-                                  //         CrossAxisAlignment.center,
-                                  //     children: [
-                                  //       CardActionButton(
-                                  //         icon: const Icon(Icons.edit),
-                                  //         onPressed: () {},
-                                  //       ),
-                                  //       CardActionButton(
-                                  //         icon: const Icon(Icons.delete),
-                                  //         onPressed: () {},
-                                  //       ),
-                                  //     ],
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
