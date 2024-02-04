@@ -23,7 +23,7 @@ class FavoriteTaskBody extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  ...taskList
+                  ...taskList.reversed
                       .map(
                         (e) => Padding(
                           padding: context.padding.low,
