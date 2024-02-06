@@ -20,11 +20,13 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   // final AdsFunction adsFunction = AdsFunction();
+  BannerAd? bannerAd;
+  InterstitialAd? _interstitialAd;
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        builder: (context) => const SingleChildScrollView(
+        builder: (context) => SingleChildScrollView(
               child: AddTaskScreen(),
             ));
   }
@@ -36,7 +38,6 @@ class _TabScreenState extends State<TabScreen> {
   ];
 
   var _selectedPage = 0;
-  BannerAd? bannerAd;
 
   @override
   void initState() {

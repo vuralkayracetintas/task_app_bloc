@@ -1,19 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/models/task_model.dart';
+import 'package:task_app/product/service/ads_service.dart';
 import 'package:task_app/product/service/guid.dart';
 
-class AddTaskScreen extends StatelessWidget {
+class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({
     super.key,
   });
 
   @override
+  State<AddTaskScreen> createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  // AdsFunction adsFunction = AdsFunction();
+  InterstitialAd? _interstitialAd;
+  bool _isAdloaded = false;
+  @override
   Widget build(BuildContext context) {
-    TextEditingController titleController = TextEditingController();
-    TextEditingController descriptionController = TextEditingController();
-    // AdsFunction adsFunction = AdsFunction();
+    void loadAd() {
+      InterstitialAd.load(
+          adUnitId: AdsService.interstitialAdUnitId,
+          request: const AdRequest(),
+          adLoadCallback: InterstitialAdLoadCallback(
+            onAdLoaded: (ad) {
+              debugPrint('$ad loaded.');
+
+              _interstitialAd = ad;
+              _interstitialAd?.show();
+            },
+            // Called when an ad request failed.
+            onAdFailedToLoad: (LoadAdError error) {
+              debugPrint('InterstitialAd failed to load: $error');
+            },
+          ));
+    }
+
+    void _showInterstitialAd() {
+      if (_interstitialAd != null) {
+        _interstitialAd!.fullScreenContentCallback =
+            FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          loadAd();
+        }, onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          loadAd();
+        });
+        _interstitialAd!.show();
+        _interstitialAd = null;
+      }
+    }
+
+    initState() {
+      super.initState();
+      loadAd();
+      _showInterstitialAd();
+    }
 
     bool adShown = false;
     return Container(
@@ -67,7 +114,7 @@ class AddTaskScreen extends StatelessWidget {
                   child: const Text('Cancel'),
                 ),
                 ElevatedButton(
-                  onPressed: () async {
+                  onPressed: () {
                     if (titleController.text.isEmpty) {
                       showDialog(
                         context: context,
@@ -87,10 +134,8 @@ class AddTaskScreen extends StatelessWidget {
                         },
                       );
                     } else {
-                      if (!adShown) {
-                        // adsFunction.loadIntestitialAd();
-                        adShown = true;
-                      }
+                      loadAd();
+                      // _showInterstitialAd();
 
                       var task = titleController.text;
                       var desc = descriptionController.text;
@@ -104,6 +149,15 @@ class AddTaskScreen extends StatelessWidget {
                               ),
                             ),
                           );
+                      // _interstitialAd?.show();
+                      // if (_interstitialAd != null) {
+                      //   _interstitialAd?.show();
+                      //   print('add loaded');
+                      // } else {
+                      //   print('add not found');
+                      // }
+                      // _showInterstitialAd();
+
                       Navigator.pop(context);
                       debugPrint(task);
                       debugPrint(desc);
