@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 // import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -11,7 +10,7 @@ import 'package:task_app/product/theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MobileAds.instance.initialize();
+  // MobileAds.instance.initialize();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
@@ -52,3 +51,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
