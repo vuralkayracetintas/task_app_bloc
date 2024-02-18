@@ -160,17 +160,16 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
     final state = this.state;
     List<Task> favouriteTask = List.from(state.favoriteTask);
     if (event.oldTask.isFavorite == true) {
-      // favouriteTask
-      //   ..remove(event.oldTask)
-      //   ..insert(0, event.newTask);
       favouriteTask.remove(event.oldTask);
-      favouriteTask.insert(0, event.newTask);
+      favouriteTask.insert(0 + 1, event.newTask);
     }
     emit(
       TasksState(
         pendingTask: List.from(state.pendingTask)
           ..remove(event.oldTask)
-          ..insert(0, event.newTask),
+
+          /// insert index added line
+          ..insert(state.pendingTask.length - 1, event.newTask),
         completedTask: state.completedTask..remove(event.oldTask),
         favoriteTask: favouriteTask,
         removedTasks: state.removedTasks,

@@ -41,7 +41,7 @@ class GoogleAds extends ChangeNotifier {
         ad.dispose();
       },
     );
-    interstitialAd!.show();
+    interstitialAd?.show();
   }
 
   void loadBannerAd() {

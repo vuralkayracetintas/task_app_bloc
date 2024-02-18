@@ -19,6 +19,7 @@ class EditTaskScreen extends StatelessWidget {
     );
     return Container(
       padding: context.padding.onlyBottomHigh,
+      color: context.general.appTheme.backgroundColor,
       child: Container(
         padding: context.padding.low,
         child: Column(
@@ -38,8 +39,8 @@ class EditTaskScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               controller: descriptionController,
-              minLines: 3,
-              maxLines: 5,
+              minLines: 5,
+              maxLines: 10,
               decoration: const InputDecoration(
                   label: Text('description'), border: OutlineInputBorder()),
             ),
@@ -73,7 +74,7 @@ class EditTaskScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: context.sized.height * 0.3)
+            SizedBox(height: context.sized.height * 0.1)
           ],
         ),
       ),
