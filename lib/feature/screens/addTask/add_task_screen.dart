@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/function/ads_function.dart';
 import 'package:task_app/product/models/task_model.dart';
-import 'package:task_app/product/service/ads_service.dart';
 import 'package:task_app/product/service/guid.dart';
 
 class AddTaskScreen extends StatefulWidget {
@@ -24,9 +22,16 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     googleAds.loadIntestitialAd();
     super.initState();
+    print('ads initialize');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    googleAds.loadIntestitialAd();
+    print('ads dispose');
   }
 
   @override
@@ -62,8 +67,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             TextField(
               autofocus: true,
               controller: descriptionController,
-              minLines: 3,
-              maxLines: 5,
+              minLines: 5,
+              maxLines: 20,
               keyboardType: TextInputType.multiline,
               textInputAction: TextInputAction.newline,
               decoration: const InputDecoration(
@@ -103,7 +108,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       );
                     } else {
                       // _showInterstitialAd();
-                      googleAds.showInterstitialAd();
+                      // googleAds.showInterstitialAd();
 
                       var task = titleController.text;
                       var desc = descriptionController.text;
@@ -136,7 +141,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 ),
               ],
             ),
-            SizedBox(height: context.sized.height * 0.3)
+            SizedBox(height: context.sized.height * 0.1)
           ],
         ),
       ),

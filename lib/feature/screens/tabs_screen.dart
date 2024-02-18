@@ -26,7 +26,7 @@ class _TabScreenState extends State<TabScreen> {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        builder: (context) => SingleChildScrollView(
+        builder: (context) => const SingleChildScrollView(
               child: AddTaskScreen(),
             ));
   }
@@ -43,6 +43,12 @@ class _TabScreenState extends State<TabScreen> {
   void initState() {
     super.initState();
     // adsFunction.loadIntestitialAd();
+    _createBanner();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
     _createBanner();
   }
 
