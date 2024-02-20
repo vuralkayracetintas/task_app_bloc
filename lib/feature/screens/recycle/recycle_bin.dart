@@ -17,9 +17,35 @@ class RecycleBin extends StatelessWidget {
                 Chip(label: Text('${state.removedTasks.length} deleted task')),
             actions: [
               TextButton(
-                  onPressed: () =>
-                      context.read<TasksBloc>().add(DeleteAllTasks()),
-                  child: const Text('Clear All'))
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Delete All'),
+                          content: const Text('Are you sure?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                context.read<TasksBloc>().add(DeleteAllTasks());
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Yes'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('No'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  // onPressed: () =>
+                  //     context.read<TasksBloc>().add(DeleteAllTasks()),
+                  child: const Text('Delete All'))
             ],
           ),
 

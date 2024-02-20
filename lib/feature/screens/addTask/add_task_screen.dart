@@ -72,7 +72,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               keyboardType: TextInputType.multiline,
               textInputAction: TextInputAction.newline,
               decoration: const InputDecoration(
-                label: Text('description'),
+                // labelText: 'Description',
+                label: Text('Description'),
                 border: OutlineInputBorder(),
               ),
             ),

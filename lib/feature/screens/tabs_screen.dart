@@ -6,7 +6,7 @@ import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
 
 import 'package:task_app/feature/screens/favorite/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending/pending_screen.dart';
-import 'package:task_app/product/service/ads_service.dart';
+import 'package:task_app/product/service/google_ads/ads_service.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
 

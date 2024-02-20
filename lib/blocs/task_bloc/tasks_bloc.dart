@@ -15,6 +15,7 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
     on<EditTasks>(_onEditTask);
     on<RestoreTasks>(_onRestoreTask);
     on<DeleteAllTasks>(_onDeleteAllTask);
+    on<DeleteAllTaskHome>(_onDeleteAllTaskHome);
   }
 
   void _onAddTask(AddTask event, Emitter<TasksState> emit) {
@@ -67,11 +68,12 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
   void _onRemoveTask(RemoveTask event, Emitter<TasksState> emit) {
     final state = this.state;
     emit(TasksState(
-        pendingTask: List.from(state.pendingTask)..remove(event.task),
-        completedTask: List.from(state.completedTask)..remove(event.task),
-        favoriteTask: List.from(state.favoriteTask)..remove(event.task),
-        removedTasks: List.from(state.removedTasks)
-          ..add(event.task.copyWith(isDeleted: true))));
+      pendingTask: List.from(state.pendingTask)..remove(event.task),
+      completedTask: List.from(state.completedTask)..remove(event.task),
+      favoriteTask: List.from(state.favoriteTask)..remove(event.task),
+      removedTasks: List.from(state.removedTasks)
+        ..add(event.task.copyWith(isDeleted: true)),
+    ));
   }
 
   // void _onFavoriteOrUnFavoriteTask(
@@ -206,6 +208,16 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
         favoriteTask: state.favoriteTask,
       ),
     );
+  }
+
+  /// Homepage clear all button function
+  void _onDeleteAllTaskHome(DeleteAllTaskHome event, Emitter<TasksState> emit) {
+    final state = this.state;
+    emit(TasksState(
+        pendingTask: const [],
+        removedTasks: List.from(state.removedTasks)
+          ..addAll(state.pendingTask
+              .map((task) => task.copyWith(isDeleted: true)))));
   }
 
   @override

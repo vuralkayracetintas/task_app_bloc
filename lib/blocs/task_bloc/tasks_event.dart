@@ -72,3 +72,9 @@ class RestoreTasks extends TasksEvent {
 }
 
 class DeleteAllTasks extends TasksEvent {}
+
+class DeleteAllTaskHome extends TasksEvent {
+  // final Task task;
+  // const DeleteAllTaskHome({required this.task});
+  // List<Object> get props => [task];
+}

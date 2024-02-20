@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:task_app/product/service/ads_service.dart';
+import 'package:task_app/product/service/google_ads/ads_service.dart';
 
 class GoogleAds extends ChangeNotifier {
   BannerAd? bannerAd;

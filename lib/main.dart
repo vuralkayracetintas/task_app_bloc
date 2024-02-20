@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 
 import 'package:task_app/feature/screens/tabs_screen.dart';
-import 'package:task_app/product/service/app_router.dart';
+import 'package:task_app/product/service/navigation/app_router.dart';
 import 'package:task_app/product/theme/app_theme.dart';
 
 Future<void> main() async {
