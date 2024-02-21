@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/pending/pending_body_view.dart';
-import 'package:task_app/product/models/task_model.dart';
 
 class PendingScreen extends StatelessWidget {
   const PendingScreen({super.key});
@@ -14,8 +13,6 @@ class PendingScreen extends StatelessWidget {
     // final AdsFunction adsFunction = AdsFunction();
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
-        List<Task> taskList = state.pendingTask;
-
         return SingleChildScrollView(
           child: Column(
             children: [
@@ -33,7 +30,7 @@ class PendingScreen extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: state.pendingTask.length > 0
+                    onPressed: state.pendingTask.isNotEmpty
                         ? () {
                             showDialog(
                               context: context,

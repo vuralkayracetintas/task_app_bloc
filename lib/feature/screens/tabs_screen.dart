@@ -21,7 +21,6 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   // final AdsFunction adsFunction = AdsFunction();
   BannerAd? bannerAd;
-  InterstitialAd? _interstitialAd;
   void _addTask(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -42,7 +41,6 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     super.initState();
-    // adsFunction.loadIntestitialAd();
     _createBanner();
   }
 
@@ -100,7 +98,7 @@ class _TabScreenState extends State<TabScreen> {
         children: [
           bannerAd == null
               ? Container()
-              : Container(
+              : SizedBox(
                   height: bannerAd!.size.height.toDouble(),
                   width: bannerAd!.size.width.toDouble(),
                   child: AdWidget(ad: bannerAd!),
