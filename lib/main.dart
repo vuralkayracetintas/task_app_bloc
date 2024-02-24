@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 // import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -6,19 +7,23 @@ import 'package:path_provider/path_provider.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 
 import 'package:task_app/feature/screens/tabs_screen.dart';
+import 'package:task_app/product/init/product_localization.dart';
 import 'package:task_app/product/service/navigation/app_router.dart';
 import 'package:task_app/product/theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   MobileAds.instance.initialize();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
   // Future.delayed(const Duration(seconds: 2));
   // FlutterNativeSplash.remove();
-  runApp(MyApp(
-    appRouter: AppRouter(),
+  runApp(ProductLocalization(
+    child: MyApp(
+      appRouter: AppRouter(),
+    ),
   ));
 }
 
@@ -40,6 +45,9 @@ class MyApp extends StatelessWidget {
             //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             //   useMaterial3: true,
             // ),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             debugShowCheckedModeBanner: false,
             theme: state.switchValue
                 ? AppThemes.appThemeData[AppTheme.darkTheme]

@@ -1,0 +1,18 @@
+{
+  "home": {
+    "pending": "Pending Task",
+    "completed": "Completed Task",
+    "favorite": "Favorite Task"
+  },
+  "general": {
+    "button": {
+      "save": "Save "
+    },
+    "dialog": {
+      "version": {
+        "title": "Version",
+        "content": "Version info"
+      }
+    }
+  }
+}

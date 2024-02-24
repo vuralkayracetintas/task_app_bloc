@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
@@ -6,7 +7,10 @@ import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
 
 import 'package:task_app/feature/screens/favorite/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending/pending_screen.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
+import 'package:task_app/product/init/product_localization.dart';
 import 'package:task_app/product/service/google_ads/ads_service.dart';
+import 'package:task_app/product/utility/constant/enums/locales.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
 
@@ -31,9 +35,12 @@ class _TabScreenState extends State<TabScreen> {
   }
 
   final List<Map<String, dynamic>> _pages = [
-    {'pageName': const PendingScreen(), 'title': "Pending Task"},
-    {'pageName': const CompletedScreen(), 'title': "Completed Task"},
-    {'pageName': const FavoriteScreen(), 'title': "Favorite Task"}
+    {'pageName': const PendingScreen(), 'title': LocaleKeys.home_pending.tr()},
+    {
+      'pageName': const CompletedScreen(),
+      'title': LocaleKeys.home_completed.tr()
+    },
+    {'pageName': const FavoriteScreen(), 'title': LocaleKeys.home_favorite.tr()}
   ];
 
   var _selectedPage = 0;
@@ -47,6 +54,7 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void dispose() {
     super.dispose();
+
     _createBanner();
   }
 
@@ -70,12 +78,20 @@ class _TabScreenState extends State<TabScreen> {
   //   );
   // }
 
+  List<String> appbarText = [
+    LocaleKeys.home_pending.tr(),
+    LocaleKeys.home_completed.tr(),
+    LocaleKeys.home_favorite.tr()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        title: Text(_pages[_selectedPage]['title']),
+        title: Text(
+          appbarText[_selectedPage],
+        ),
         backgroundColor: context.general.appTheme.appBarTheme.backgroundColor,
       ),
       drawer: const DrawerWidget(),
@@ -118,15 +134,16 @@ class _TabScreenState extends State<TabScreen> {
                 icon: const Icon(
                   Icons.list,
                 ),
-                label: _pages[0]['title'],
+                label: LocaleKeys.home_pending.tr(),
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.done),
-                label: _pages[1]['title'],
+                label: LocaleKeys.home_completed.tr(),
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.favorite),
-                label: _pages[2]['title'],
+                // label: _pages[2]['title']
+                label: LocaleKeys.home_favorite.tr(),
               )
             ],
           ),

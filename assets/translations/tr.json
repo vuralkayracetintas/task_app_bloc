@@ -1,0 +1,18 @@
+{
+  "home": {
+    "pending": "Yapilacaklar",
+    "completed": "Tamamlananlar",
+    "favorite": "Favoriler"
+  },
+  "general": {
+    "button": {
+      "save": "kaydet"
+    },
+    "dialog": {
+      "version": {
+        "title": "Version",
+        "content": "Version info"
+      }
+    }
+  }
+}
