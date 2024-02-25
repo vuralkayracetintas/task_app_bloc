@@ -1,25 +1,39 @@
 {
   "home": {
-    "pending": "Yapilacaklar",
+    "pending": "Yapılacaklar",
     "completed": "Tamamlananlar",
     "favorite": "Favoriler"
   },
 
   "drawer": {
-    "mytask": "Gorevlerim",
-    "trash": "Cop Kutusu",
+    "mytask": "Görevlerim",
+    "trash": "Çöp Kutusu",
     "thememode": "Tema",
-    "changelanguage": "Dili Degistir"
+    "changelanguage": "Dili Değiştri"
+  },
+
+  "trash": {
+    "chip_title": "Silinen Görev",
+    "delete_all": "Hepsini Sil"
   },
   "task_card": {
     "edit": "Duzenle",
     "delete": "Sil",
-    "complate": "Tamamla",
-    "uncomplate": "Tamamlanmadi"
+    "complete": "Tamamla",
+    "uncompleted": "Tamamlanmadı"
   },
+
+  "ad_edit_task": {
+    "main": "Görev Ekle",
+    "edit": "Düzenle",
+    "title": "Başlık",
+    "description": "Açıklama"
+  },
+
   "general": {
     "button": {
-      "save": "Kaydet"
+      "save": "Kaydet",
+      "cancel": "Vazgeç"
     },
     "dialog": {
       "version": {

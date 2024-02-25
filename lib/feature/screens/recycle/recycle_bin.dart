@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/recycle/recycle_bin_body.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 
 class RecycleBin extends StatelessWidget {
   const RecycleBin({super.key});
@@ -13,8 +15,16 @@ class RecycleBin extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title:
-                Chip(label: Text('${state.removedTasks.length} deleted task')),
+            title: Chip(
+                label: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("${state.removedTasks.length} "),
+                const Text(
+                  LocaleKeys.trash_chip_title,
+                ).tr(),
+              ],
+            )),
             actions: [
               TextButton(
                   onPressed: () {
@@ -22,7 +32,7 @@ class RecycleBin extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text('Delete All'),
+                          title: const Text(LocaleKeys.trash_delete_all).tr(),
                           content: const Text('Are you sure?'),
                           actions: [
                             TextButton(
@@ -45,7 +55,7 @@ class RecycleBin extends StatelessWidget {
                   },
                   // onPressed: () =>
                   //     context.read<TasksBloc>().add(DeleteAllTasks()),
-                  child: const Text('Delete All'))
+                  child: const Text(LocaleKeys.trash_delete_all).tr())
             ],
           ),
 

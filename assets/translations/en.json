@@ -12,15 +12,28 @@
     "changelanguage": "Change Language"
   },
 
+  "trash": {
+    "chip_title": "Deleted Task",
+    "delete_all": "Delete All"
+  },
   "task_card": {
     "edit": "Edit",
     "delete": "Delete",
-    "complate": "Complete",
-    "uncomplate": "Uncomplete"
+    "complete": "Complete",
+    "uncompleted": "Uncomplete"
   },
+
+  "ad_edit_task": {
+    "main": "Add Task",
+    "edit": "Edit Task",
+    "title": "Title",
+    "description": "Description"
+  },
+
   "general": {
     "button": {
-      "save": "Save "
+      "save": "Save ",
+      "cancel": "Cancel"
     },
 
     "dialog": {

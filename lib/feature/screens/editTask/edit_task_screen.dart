@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/service/guid.dart';
 
@@ -25,15 +27,16 @@ class EditTaskScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Edit Task',
+              LocaleKeys.ad_edit_task_edit,
               style: context.general.textTheme.titleLarge,
-            ),
+            ).tr(),
             SizedBox(height: context.sized.height * 0.013),
             TextField(
               autofocus: true,
               controller: titleController,
-              decoration: const InputDecoration(
-                  label: Text('Title'), border: OutlineInputBorder()),
+              decoration: InputDecoration(
+                  label: Text(LocaleKeys.ad_edit_task_title).tr(),
+                  border: OutlineInputBorder()),
             ),
             SizedBox(height: context.sized.height * 0.025),
             TextField(
@@ -41,15 +44,16 @@ class EditTaskScreen extends StatelessWidget {
               controller: descriptionController,
               minLines: 5,
               maxLines: 10,
-              decoration: const InputDecoration(
-                  label: Text('description'), border: OutlineInputBorder()),
+              decoration: InputDecoration(
+                  label: Text(LocaleKeys.ad_edit_task_description).tr(),
+                  border: OutlineInputBorder()),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancel'),
+                  child: const Text(LocaleKeys.general_button_cancel).tr(),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -70,7 +74,7 @@ class EditTaskScreen extends StatelessWidget {
                     context.route.navigation.pop();
                     debugPrint(GUIDGen.generate());
                   },
-                  child: const Text('Save'),
+                  child: const Text(LocaleKeys.general_button_save).tr(),
                 )
               ],
             ),

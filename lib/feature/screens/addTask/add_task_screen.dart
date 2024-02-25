@@ -1,11 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/function/ads_function.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 import 'package:task_app/product/models/task_model.dart';
 import 'package:task_app/product/service/guid.dart';
 
-class AddTaskScreen extends StatefulWidget {
+final class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({
     super.key,
   });
@@ -24,14 +26,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   void initState() {
     // googleAds.loadIntestitialAd();
     super.initState();
-    print('ads initialize');
+    debugPrint('ads initialize');
   }
 
   @override
   void dispose() {
     super.dispose();
     // googleAds.loadIntestitialAd();
-    print('ads dispose');
+    debugPrint('ads dispose');
   }
 
   @override
@@ -42,22 +44,22 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         children: [
           SizedBox(height: context.sized.height * 0.03),
           Text(
-            'Add Task',
+            LocaleKeys.ad_edit_task_main,
             style: context.general.textTheme.titleLarge,
-          ),
+          ).tr(),
           SizedBox(height: context.sized.height * 0.013),
           TextField(
             autofocus: true,
             controller: titleController,
             keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
-            decoration: const InputDecoration(
-              label: Text('Title'),
+            decoration: InputDecoration(
+              label: Text(LocaleKeys.ad_edit_task_title.tr()),
               // focusedBorder:
               //     OutlineInputBorder(borderSide: BorderSide(width: 2)),
               // enabledBorder: OutlineInputBorder(
               //     borderSide: BorderSide(color: Colors.red, width: 2)),
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red, width: 2)),
             ),
           ),
@@ -69,10 +71,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             maxLines: 20,
             keyboardType: TextInputType.multiline,
             textInputAction: TextInputAction.newline,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               // labelText: 'Description',
-              label: Text('Description'),
-              border: OutlineInputBorder(),
+              label: const Text(LocaleKeys.ad_edit_task_description).tr(),
+              border: const OutlineInputBorder(),
             ),
           ),
           SizedBox(
@@ -83,7 +85,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             children: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel'),
+                child: const Text(LocaleKeys.general_button_cancel).tr(),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -136,7 +138,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     debugPrint(GUIDGen.generate());
                   }
                 },
-                child: const Text('Save'),
+                child: const Text(LocaleKeys.general_button_save).tr(),
               ),
             ],
           ),
