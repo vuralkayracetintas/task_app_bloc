@@ -4,9 +4,22 @@
     "completed": "Tamamlananlar",
     "favorite": "Favoriler"
   },
+
+  "drawer": {
+    "mytask": "Gorevlerim",
+    "trash": "Cop Kutusu",
+    "thememode": "Tema",
+    "changelanguage": "Dili Degistir"
+  },
+  "task_card": {
+    "edit": "Duzenle",
+    "delete": "Sil",
+    "complate": "Tamamla",
+    "uncomplate": "Tamamlanmadi"
+  },
   "general": {
     "button": {
-      "save": "kaydet"
+      "save": "Kaydet"
     },
     "dialog": {
       "version": {

@@ -27,11 +27,13 @@ class _TabScreenState extends State<TabScreen> {
   BannerAd? bannerAd;
   void _addTask(BuildContext context) {
     showModalBottomSheet(
+        // elevation: 10,
+
+        backgroundColor: context.general.appTheme.backgroundColor,
         context: context,
+        useSafeArea: true,
         isScrollControlled: true,
-        builder: (context) => const SingleChildScrollView(
-              child: AddTaskScreen(),
-            ));
+        builder: (context) => AddTaskScreen());
   }
 
   final List<Map<String, dynamic>> _pages = [

@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 
 import 'package:task_app/product/models/task_model.dart';
 
@@ -37,7 +39,7 @@ class PopupMenu extends StatelessWidget {
                     child: TextButton.icon(
                         onPressed: null,
                         icon: const Icon(Icons.edit),
-                        label: const Text('Edit')),
+                        label: const Text(LocaleKeys.task_card_edit).tr()),
                   ),
                   // PopupMenuItem(
                   //   onTap: likeOrDislike,
@@ -55,7 +57,7 @@ class PopupMenu extends StatelessWidget {
                     child: TextButton.icon(
                         onPressed: null,
                         icon: const Icon(Icons.delete),
-                        label: const Text('Delete')),
+                        label: const Text(LocaleKeys.task_card_delete).tr()),
                   ),
                   // if (isCompleted == false)
                   PopupMenuItem(
@@ -64,8 +66,8 @@ class PopupMenu extends StatelessWidget {
                       onPressed: null,
                       icon: const Icon(Icons.check),
                       label: isCompleted == false
-                          ? const Text('Complete')
-                          : const Text('Uncomplete'),
+                          ? const Text(LocaleKeys.task_card_complate).tr()
+                          : const Text(LocaleKeys.task_card_uncomplate).tr(),
                     ),
                   )
                 ]

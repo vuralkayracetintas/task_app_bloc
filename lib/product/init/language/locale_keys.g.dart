@@ -5,6 +5,16 @@ abstract class  LocaleKeys {
   static const home_completed = 'home.completed';
   static const home_favorite = 'home.favorite';
   static const home = 'home';
+  static const drawer_mytask = 'drawer.mytask';
+  static const drawer_trash = 'drawer.trash';
+  static const drawer_thememode = 'drawer.thememode';
+  static const drawer_changelanguage = 'drawer.changelanguage';
+  static const drawer = 'drawer';
+  static const task_card_edit = 'task_card.edit';
+  static const task_card_delete = 'task_card.delete';
+  static const task_card_complate = 'task_card.complate';
+  static const task_card_uncomplate = 'task_card.uncomplate';
+  static const task_card = 'task_card';
   static const general_button_save = 'general.button.save';
   static const general_button = 'general.button';
   static const general_dialog_version_title = 'general.dialog.version.title';

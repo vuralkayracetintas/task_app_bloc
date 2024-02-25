@@ -4,10 +4,25 @@
     "completed": "Completed Task",
     "favorite": "Favorite Task"
   },
+
+  "drawer": {
+    "mytask": "My Task",
+    "trash": "Trash",
+    "thememode": "Theme Mode",
+    "changelanguage": "Change Language"
+  },
+
+  "task_card": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "complate": "Complete",
+    "uncomplate": "Uncomplete"
+  },
   "general": {
     "button": {
       "save": "Save "
     },
+
     "dialog": {
       "version": {
         "title": "Version",
