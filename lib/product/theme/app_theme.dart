@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_app/product/constants/color_constants.dart';
+import 'package:task_app/product/utility/constant/color_constants.dart';
 
 enum AppTheme {
   lightTheme,

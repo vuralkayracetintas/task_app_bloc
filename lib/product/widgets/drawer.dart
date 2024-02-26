@@ -1,8 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
+import 'package:task_app/feature/screens/language/language_screen.dart';
 import 'package:task_app/feature/screens/recycle/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -47,9 +51,7 @@ class DrawerWidget extends StatelessWidget {
                   onTap: () => Navigator.of(context).pushNamed(TabScreen.id),
                   child: ListTile(
                     leading: const Icon(Icons.folder_special),
-                    title: const Text(
-                      "My Tasks",
-                    ),
+                    title: const Text(LocaleKeys.drawer_mytask).tr(),
                     trailing: Chip(
                       padding: context.padding.low,
                       label: Text(state.pendingTask.length.toString()),
@@ -64,7 +66,7 @@ class DrawerWidget extends StatelessWidget {
                   onTap: () => Navigator.of(context).pushNamed(RecycleBin.id),
                   child: ListTile(
                     leading: const Icon(Icons.delete),
-                    title: const Text("Trash"),
+                    title: const Text(LocaleKeys.drawer_trash).tr(),
                     trailing: Chip(
                       padding: context.padding.low,
                       label: Text(state.removedTasks.length.toString()),
@@ -79,7 +81,7 @@ class DrawerWidget extends StatelessWidget {
                   leading: state.switchValue
                       ? const Icon(Icons.dark_mode)
                       : const Icon(Icons.light_mode),
-                  title: const Text('Theme Mode'),
+                  title: const Text(LocaleKeys.drawer_thememode).tr(),
                   trailing: Switch(
                     value: state.switchValue,
                     onChanged: (newValue) {
@@ -90,7 +92,14 @@ class DrawerWidget extends StatelessWidget {
                   ),
                 );
               },
-            )
+            ),
+            GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(LanguageScreen.id),
+              child: ListTile(
+                leading: const Icon(Icons.flag),
+                title: const Text(LocaleKeys.drawer_changelanguage).tr(),
+              ),
+            ),
           ],
         ),
       ),

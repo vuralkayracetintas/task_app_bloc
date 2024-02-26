@@ -1,0 +1,61 @@
+{
+  "home": {
+    "todo": {
+      "title": "Yapılacaklar",
+      "chip_first": "Görev",
+      "chip_second": "Tamamlandı",
+      "bottom_nav": "Yapılacaklar",
+      "delete_all": "Hepsini Sil"
+    },
+    "completed": {
+      "title": "Tamamlanan Görevler",
+      "chip_not": "Tamamlanan Görev yok",
+      "chip_complete": "Görev Tamamlandı",
+      "bottom_nav": "Tamamlananlar"
+    },
+    "favorite": {
+      "title": "Favori Görevler",
+      "chip_not": "Favori Görev yok",
+      "chip_favorite": "Favori Görev",
+      "bottom_nav": "Favoriler"
+    }
+  },
+
+  "drawer": {
+    "mytask": "Görevlerim",
+    "trash": "Çöp Kutusu",
+    "thememode": "Tema",
+    "changelanguage": "Dili Değiştir"
+  },
+
+  "trash": {
+    "chip_title": "Silinen Görev",
+    "delete_all": "Hepsini Sil"
+  },
+  "task_card": {
+    "edit": "Duzenle",
+    "delete": "Sil",
+    "complete": "Tamamla",
+    "uncompleted": "Tamamlanmadı"
+  },
+
+  "ad_edit_task": {
+    "main": "Görev Ekle",
+    "edit": "Düzenle",
+    "title": "Başlık",
+    "description": "Açıklama"
+  },
+
+  "general": {
+    "button": {
+      "save": "Kaydet",
+      "cancel": "Vazgeç"
+    },
+    "dialog": {
+      "version": {
+        "title": "Version",
+        "content": "Version info"
+      }
+    }
+  }
+}

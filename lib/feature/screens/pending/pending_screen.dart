@@ -1,13 +1,26 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/pending/pending_body_view.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
+import 'package:task_app/product/init/product_localization.dart';
+import 'package:task_app/product/utility/constant/enums/locales.dart';
 
-class PendingScreen extends StatelessWidget {
+class PendingScreen extends StatefulWidget {
   const PendingScreen({super.key});
 
   static const String id = 'pending_screen';
 
+  @override
+  State<PendingScreen> createState() => _PendingScreenState();
+}
+
+String xValue = LocaleKeys.home_todo_chip_first.tr();
+
+class _PendingScreenState extends State<PendingScreen> {
   @override
   Widget build(BuildContext context) {
     // final AdsFunction adsFunction = AdsFunction();
@@ -25,10 +38,40 @@ class PendingScreen extends StatelessWidget {
                   Expanded(
                     child: Chip(
                       // backgroundColor: ColorConstants.hotPink,
-                      label: Text(
-                          '${state.pendingTask.length} Tasks ${state.completedTask.length} Completed'),
+                      label: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(LocaleKeys.home_todo_chip_first)
+                              .tr(args: ["${state.pendingTask.length}"]),
+
+                          // Text(
+                          //     '${state.pendingTask.length} ${LocaleKeys.home_todo_chip_first.tr()} ${state.completedTask.length} ${LocaleKeys.home_todo_chip_second.tr()}'),
+                        ],
+                      ),
                     ),
                   ),
+
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     ProductLocalization.updateLanguage(
+                  //       context: context,
+                  //       value: Locales.en,
+                  //     );
+                  //   },
+                  //   child: const Text(LocaleKeys.general_button_save).tr(),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     ProductLocalization.updateLanguage(
+                  //       context: context,
+                  //       value: Locales.tr,
+                  //     );
+                  //   },
+                  //   child: const Text(LocaleKeys.general_button_save).tr(),
+                  // ),
+                  // onPressed: () =>
+                  //     context.read<TasksBloc>().add(DeleteAllTaskHome()),
+
                   TextButton(
                     onPressed: state.pendingTask.isNotEmpty
                         ? () {
@@ -74,9 +117,10 @@ class PendingScreen extends StatelessWidget {
                             );
                           }
                         : null,
-                    // onPressed: () =>
-                    //     context.read<TasksBloc>().add(DeleteAllTaskHome()),
-                    child: const Text('Remove all'),
+                    child: Padding(
+                      padding: context.padding.onlyRightLow,
+                      child: const Text(LocaleKeys.home_todo_delete_all).tr(),
+                    ),
                   ),
                 ],
               ),

@@ -1,0 +1,65 @@
+{
+  "home": {
+    "todo": {
+      "title": "TO DO Tasks",
+      "chip_first": "{} Tasks",
+      "chip_second": "Completed",
+      "bottom_nav": "TO DO",
+      "delete_all": "Remove All"
+    },
+    "alert_message": {
+      "yes": "Yes"
+    },
+    "completed": {
+      "title": "Completed Task",
+      "chip_not": "No Completed Task",
+      "chip_complete": "Completed Task",
+      "bottom_nav": "Completed"
+    },
+    "favorite": {
+      "title": "Favorite Task",
+      "chip_not": "No Favorite Task",
+      "chip_favorite": "Favorite Task",
+      "bottom_nav": "Favorite"
+    }
+  },
+
+  "drawer": {
+    "mytask": "My Task",
+    "trash": "Trash",
+    "thememode": "Theme Mode",
+    "changelanguage": "Change Language"
+  },
+
+  "trash": {
+    "chip_title": "Deleted Task",
+    "delete_all": "Delete All"
+  },
+  "task_card": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "complete": "Complete",
+    "uncompleted": "Uncomplete"
+  },
+
+  "ad_edit_task": {
+    "main": "Add Task",
+    "edit": "Edit Task",
+    "title": "Title",
+    "description": "Description"
+  },
+
+  "general": {
+    "button": {
+      "save": "Save ",
+      "cancel": "Cancel"
+    },
+
+    "dialog": {
+      "version": {
+        "title": "Version",
+        "content": "Version info"
+      }
+    }
+  }
+}
