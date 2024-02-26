@@ -6,6 +6,7 @@ class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key? key}) : super(key: key);
 
   static const id = 'language_screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class LanguageScreen extends StatelessWidget {
                   value: Locales.en,
                 );
               },
-              child: Text(
+              child: const Text(
                 "Translate EN",
               ),
             ),
@@ -31,13 +32,28 @@ class LanguageScreen extends StatelessWidget {
                   value: Locales.tr,
                 );
               },
-              child: Text(
+              child: const Text(
                 "Translate TR",
               ),
-            )
+            ),
+
+            // GridView.builder(
+            //   gridDelegate:
+            //       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            //   itemCount: 3,
+            //   itemBuilder: (context, index) {
+            //     return Image(image: AssetImage('assets/country/turkish.png'));
+            //   },
+            // ),
+            const Image(image: AssetImage('assets/country/turkish.png')),
+            const Image(image: AssetImage('assets/country/germany.png')),
+            const Image(image: AssetImage('assets/country/english.png')),
+            const Image(image: AssetImage('assets/country/spanish.png')),
           ],
         ),
       ),
     );
   }
 }
+/// image aset 
+/// cevirilecek dil 

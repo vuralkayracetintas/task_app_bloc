@@ -33,16 +33,22 @@ class _TabScreenState extends State<TabScreen> {
         context: context,
         useSafeArea: true,
         isScrollControlled: true,
-        builder: (context) => AddTaskScreen());
+        builder: (context) => const AddTaskScreen());
   }
 
   final List<Map<String, dynamic>> _pages = [
-    {'pageName': const PendingScreen(), 'title': LocaleKeys.home_pending.tr()},
+    {
+      'pageName': const PendingScreen(),
+      'title': LocaleKeys.home_todo_title.tr()
+    },
     {
       'pageName': const CompletedScreen(),
-      'title': LocaleKeys.home_completed.tr()
+      'title': LocaleKeys.home_completed_title.tr()
     },
-    {'pageName': const FavoriteScreen(), 'title': LocaleKeys.home_favorite.tr()}
+    {
+      'pageName': const FavoriteScreen(),
+      'title': LocaleKeys.home_favorite_title.tr()
+    }
   ];
 
   var _selectedPage = 0;
@@ -80,10 +86,10 @@ class _TabScreenState extends State<TabScreen> {
   //   );
   // }
 
-  List<String> appbarText = [
-    LocaleKeys.home_pending.tr(),
-    LocaleKeys.home_completed.tr(),
-    LocaleKeys.home_favorite.tr()
+  List<String> appBarText = [
+    LocaleKeys.home_todo_title.tr(),
+    LocaleKeys.home_completed_title.tr(),
+    LocaleKeys.home_favorite_title.tr()
   ];
 
   @override
@@ -92,7 +98,10 @@ class _TabScreenState extends State<TabScreen> {
       // backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(
-          appbarText[_selectedPage],
+          "Notedle",
+          style: context.general.textTheme.headlineMedium?.copyWith(
+            fontFamily: 'Roboto',
+          ),
         ),
         backgroundColor: context.general.appTheme.appBarTheme.backgroundColor,
       ),
@@ -136,16 +145,16 @@ class _TabScreenState extends State<TabScreen> {
                 icon: const Icon(
                   Icons.list,
                 ),
-                label: LocaleKeys.home_pending.tr(),
+                label: LocaleKeys.home_todo_bottom_nav.tr(),
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.done),
-                label: LocaleKeys.home_completed.tr(),
+                label: LocaleKeys.home_completed_bottom_nav.tr(),
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.favorite),
                 // label: _pages[2]['title']
-                label: LocaleKeys.home_favorite.tr(),
+                label: LocaleKeys.home_favorite_bottom_nav.tr(),
               )
             ],
           ),

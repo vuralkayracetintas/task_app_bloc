@@ -1,8 +1,21 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class  LocaleKeys {
-  static const home_pending = 'home.pending';
+  static const home_todo_title = 'home.todo.title';
+  static const home_todo_chip_first = 'home.todo.chip_first';
+  static const home_todo_chip_second = 'home.todo.chip_second';
+  static const home_todo_bottom_nav = 'home.todo.bottom_nav';
+  static const home_todo_delete_all = 'home.todo.delete_all';
+  static const home_todo = 'home.todo';
+  static const home_completed_title = 'home.completed.title';
+  static const home_completed_chip_not = 'home.completed.chip_not';
+  static const home_completed_chip_complete = 'home.completed.chip_complete';
+  static const home_completed_bottom_nav = 'home.completed.bottom_nav';
   static const home_completed = 'home.completed';
+  static const home_favorite_title = 'home.favorite.title';
+  static const home_favorite_chip_not = 'home.favorite.chip_not';
+  static const home_favorite_chip_favorite = 'home.favorite.chip_favorite';
+  static const home_favorite_bottom_nav = 'home.favorite.bottom_nav';
   static const home_favorite = 'home.favorite';
   static const home = 'home';
   static const drawer_mytask = 'drawer.mytask';

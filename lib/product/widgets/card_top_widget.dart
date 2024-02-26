@@ -24,12 +24,12 @@ class CardTop extends StatelessWidget {
       BuildContext context,
     ) {
       showModalBottomSheet(
+          backgroundColor: context.general.appTheme.backgroundColor,
           context: context,
           isScrollControlled: true,
-          builder: (context) => SingleChildScrollView(
-                child: EditTaskScreen(
-                  oldTask: task,
-                ),
+          useSafeArea: true,
+          builder: (context) => EditTaskScreen(
+                oldTask: task,
               ));
     }
 

@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/favorite/favorite_task_body.dart';
+import 'package:task_app/product/init/language/locale_keys.g.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({
@@ -21,10 +23,9 @@ class FavoriteScreen extends StatelessWidget {
               Center(
                 child: Chip(
                   label: state.favoriteTask.isNotEmpty
-                      ? state.favoriteTask.length == 1
-                          ? Text('${state.favoriteTask.length} Task Favorite')
-                          : Text('${state.favoriteTask.length} Tasks Favorite')
-                      : const Text('No Favorite Task'),
+                      ? Text(
+                          '${state.favoriteTask.length} ${LocaleKeys.home_favorite_chip_favorite.tr()}')
+                      : const Text(LocaleKeys.home_favorite_chip_not).tr(),
                 ),
               ),
               // TaskListWidget(

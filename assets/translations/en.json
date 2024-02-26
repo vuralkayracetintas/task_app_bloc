@@ -1,8 +1,27 @@
 {
   "home": {
-    "pending": "Pending Task",
-    "completed": "Completed Task",
-    "favorite": "Favorite Task"
+    "todo": {
+      "title": "TO DO Tasks",
+      "chip_first": "{} Tasks",
+      "chip_second": "Completed",
+      "bottom_nav": "TO DO",
+      "delete_all": "Remove All"
+    },
+    "alert_message": {
+      "yes": "Yes"
+    },
+    "completed": {
+      "title": "Completed Task",
+      "chip_not": "No Completed Task",
+      "chip_complete": "Completed Task",
+      "bottom_nav": "Completed"
+    },
+    "favorite": {
+      "title": "Favorite Task",
+      "chip_not": "No Favorite Task",
+      "chip_favorite": "Favorite Task",
+      "bottom_nav": "Favorite"
+    }
   },
 
   "drawer": {

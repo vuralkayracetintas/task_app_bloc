@@ -1,15 +1,31 @@
 {
   "home": {
-    "pending": "Yapılacaklar",
-    "completed": "Tamamlananlar",
-    "favorite": "Favoriler"
+    "todo": {
+      "title": "Yapılacaklar",
+      "chip_first": "Görev",
+      "chip_second": "Tamamlandı",
+      "bottom_nav": "Yapılacaklar",
+      "delete_all": "Hepsini Sil"
+    },
+    "completed": {
+      "title": "Tamamlanan Görevler",
+      "chip_not": "Tamamlanan Görev yok",
+      "chip_complete": "Görev Tamamlandı",
+      "bottom_nav": "Tamamlananlar"
+    },
+    "favorite": {
+      "title": "Favori Görevler",
+      "chip_not": "Favori Görev yok",
+      "chip_favorite": "Favori Görev",
+      "bottom_nav": "Favoriler"
+    }
   },
 
   "drawer": {
     "mytask": "Görevlerim",
     "trash": "Çöp Kutusu",
     "thememode": "Tema",
-    "changelanguage": "Dili Değiştri"
+    "changelanguage": "Dili Değiştir"
   },
 
   "trash": {
