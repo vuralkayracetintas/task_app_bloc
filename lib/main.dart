@@ -7,19 +7,13 @@ import 'package:path_provider/path_provider.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 
 import 'package:task_app/feature/screens/tabs_screen.dart';
+import 'package:task_app/product/init/initialize/app_start_init.dart';
 import 'package:task_app/product/init/product_localization.dart';
 import 'package:task_app/product/service/navigation/app_router.dart';
 import 'package:task_app/product/theme/app_theme.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  MobileAds.instance.initialize();
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getTemporaryDirectory(),
-  );
-  // Future.delayed(const Duration(seconds: 2));
-  // FlutterNativeSplash.remove();
+  await ApplicationStart.init();
   runApp(ProductLocalization(
     child: MyApp(
       appRouter: AppRouter(),

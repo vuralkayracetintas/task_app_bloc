@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kartal/kartal.dart';
+import 'package:task_app/blocs/task_bloc/tasks_bloc.dart';
 import 'package:task_app/feature/screens/addTask/add_task_screen.dart';
 import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
 
@@ -13,6 +15,7 @@ import 'package:task_app/product/service/google_ads/ads_service.dart';
 import 'package:task_app/product/utility/constant/enums/locales.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
+import 'package:task_app/product/widgets/remove_all_text_button.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -86,25 +89,17 @@ class _TabScreenState extends State<TabScreen> {
   //   );
   // }
 
-  List<String> appBarText = [
-    LocaleKeys.home_todo_title.tr(),
-    LocaleKeys.home_completed_title.tr(),
-    LocaleKeys.home_favorite_title.tr()
-  ];
+  // List<String> appBarText = [
+  //   LocaleKeys.home_todo_title.tr(),
+  //   LocaleKeys.home_completed_title.tr(),
+  //   LocaleKeys.home_favorite_title.tr()
+  // ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Theme.of(context).backgroundColor,
-      appBar: AppBar(
-        title: Text(
-          "Notedle",
-          style: context.general.textTheme.headlineMedium?.copyWith(
-            fontFamily: 'Roboto',
-          ),
-        ),
-        backgroundColor: context.general.appTheme.appBarTheme.backgroundColor,
-      ),
+      appBar: _taskScreenAppBar(context),
       drawer: const DrawerWidget(),
       body: _pages[_selectedPage]['pageName'],
 
@@ -160,6 +155,25 @@ class _TabScreenState extends State<TabScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  PreferredSizeWidget _taskScreenAppBar(BuildContext context) {
+    return AppBar(
+      title: Text(
+        "Notedle",
+        style: context.general.textTheme.headlineMedium?.copyWith(
+          fontFamily: 'Roboto',
+        ),
+      ),
+      backgroundColor: context.general.appTheme.appBarTheme.backgroundColor,
+      actions: [
+        _selectedPage == 0
+            ? BlocBuilder<TasksBloc, TasksState>(builder: (context, state) {
+                return RemoveAllTextButtonWidget(state: state);
+              })
+            : const SizedBox.shrink()
+      ],
     );
   }
 }

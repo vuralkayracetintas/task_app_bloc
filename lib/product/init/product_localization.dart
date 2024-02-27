@@ -10,15 +10,16 @@ final class ProductLocalization extends EasyLocalization {
     super.key,
     required super.child,
   }) : super(
-          supportedLocales: _supportedLocales,
+          supportedLocales: supportedLocalesValue,
           path: _translationPath,
           useOnlyLangCode: true,
         );
 
   /// Project supported locales
-  static final List<Locale> _supportedLocales = [
+  static final List<Locale> supportedLocalesValue = [
     Locales.tr.locale,
     Locales.en.locale,
+    Locales.de.locale,
   ];
 
   /// Translation path string
@@ -29,5 +30,6 @@ final class ProductLocalization extends EasyLocalization {
     required BuildContext context,
     required Locales value,
   }) =>
+      // context.locale(value.locale);
       context.setLocale(value.locale);
 }
