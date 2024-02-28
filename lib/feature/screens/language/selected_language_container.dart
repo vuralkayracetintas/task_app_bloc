@@ -21,7 +21,9 @@ class SelectedLanguageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+   
+
+    return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: context.padding.low,
@@ -29,7 +31,11 @@ class SelectedLanguageContainer extends StatelessWidget {
         height: context.sized.dynamicHeight(0.125),
         decoration: BoxDecoration(
             // gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
-            color: isSelectedLanguage(context) ? Colors.red : Colors.green,
+            border: Border.all(
+              color: isSelectedLanguage(context) ? Colors.green : Colors.red,
+              width: 2,
+            ),
+            // color: isSelectedLanguage(context) ? Colors.red : Colors.green,
             borderRadius: BorderRadius.circular(25.0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

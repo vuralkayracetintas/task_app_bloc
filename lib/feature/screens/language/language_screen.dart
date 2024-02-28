@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/feature/screens/language/selected_language_container.dart';
-import 'package:task_app/feature/screens/pending/pending_screen.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
 import 'package:task_app/product/init/language/locale_keys.g.dart';
 import 'package:task_app/product/init/product_localization.dart';
 import 'package:task_app/product/utility/constant/enums/image.dart';
 import 'package:task_app/product/utility/constant/enums/locales.dart';
-import 'package:task_app/product/widgets/hexagon.dart';
 import 'package:task_app/product/widgets/localization/locale_text.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -19,6 +17,15 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void showSnackbar(BuildContext context, String message) {
+      final snackBar = SnackBar(
+        content: Text(message),
+        duration: const Duration(milliseconds: 500),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      print(message);
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -54,6 +61,8 @@ class LanguageScreen extends StatelessWidget {
                             context: context,
                             value: Locales.tr,
                           );
+
+                          showSnackbar(context, 'Seçilen Dil : Türkçe');
                         },
                       ),
                       SelectedLanguageContainer(
@@ -66,6 +75,7 @@ class LanguageScreen extends StatelessWidget {
                             context: context,
                             value: Locales.en,
                           );
+                          showSnackbar(context, 'Selected Language : English');
                         },
                       ),
                       SelectedLanguageContainer(
@@ -78,6 +88,8 @@ class LanguageScreen extends StatelessWidget {
                             context: context,
                             value: Locales.de,
                           );
+                          showSnackbar(
+                              context, 'Ausgewählte Sprache : Deutsch');
                         },
                       ),
                     ],
