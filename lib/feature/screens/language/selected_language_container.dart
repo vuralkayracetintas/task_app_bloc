@@ -1,9 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/product/utility/constant/enums/image.dart';
-import 'package:task_app/product/utility/constant/enums/locales.dart';
+
 import 'package:task_app/product/widgets/localization/locale_text.dart';
 
 class SelectedLanguageContainer extends StatelessWidget {

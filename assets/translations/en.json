@@ -24,6 +24,12 @@
     }
   },
 
+  "language" :{
+    "turkey" : "Turkish",
+    "english" : "English",
+    "german": "German"
+  },
+
   "drawer": {
     "mytask": "My Task",
     "trash": "Trash",

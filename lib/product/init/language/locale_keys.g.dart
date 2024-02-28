@@ -18,6 +18,10 @@ abstract class  LocaleKeys {
   static const home_favorite_bottom_nav = 'home.favorite.bottom_nav';
   static const home_favorite = 'home.favorite';
   static const home = 'home';
+  static const language_turkey = 'language.turkey';
+  static const language_english = 'language.english';
+  static const language_german = 'language.german';
+  static const language = 'language';
   static const drawer_mytask = 'drawer.mytask';
   static const drawer_trash = 'drawer.trash';
   static const drawer_thememode = 'drawer.thememode';

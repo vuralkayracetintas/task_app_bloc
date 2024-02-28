@@ -20,6 +20,11 @@
       "bottom_nav": "Favoriler"
     }
   },
+  "language": {
+    "turkey": "Türkçe",
+    "english": "İngilizce",
+    "german": "Almanca"
+  },
 
   "drawer": {
     "mytask": "Görevlerim",

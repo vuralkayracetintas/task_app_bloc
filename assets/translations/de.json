@@ -24,6 +24,12 @@
     }
   },
 
+  "language": {
+    "turkey": "Türkisch",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
+
   "drawer": {
     "mytask": "Meine Aufgabe",
     "trash": "Papierkorb",
