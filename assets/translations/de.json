@@ -1,0 +1,71 @@
+{
+  "home": {
+    "todo": {
+      "title": "ZU ERLEDIGEN Aufgaben",
+      "chip_first": "{} Aufgaben",
+      "chip_second": "Abgeschlossen",
+      "bottom_nav": "ZU ERLEDIGEN",
+      "delete_all": "Alle entfernen"
+    },
+    "alert_message": {
+      "yes": "Ja"
+    },
+    "completed": {
+      "title": "Abgeschlossene Aufgabe",
+      "chip_not": "Keine abgeschlossene Aufgabe",
+      "chip_complete": "Abgeschlossene Aufgabe",
+      "bottom_nav": "Abgeschlossen"
+    },
+    "favorite": {
+      "title": "Lieblingsaufgabe",
+      "chip_not": "Keine Lieblingsaufgabe",
+      "chip_favorite": "Lieblingsaufgabe",
+      "bottom_nav": "Lieblings"
+    }
+  },
+
+  "language": {
+    "turkey": "Türkisch",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
+
+  "drawer": {
+    "mytask": "Meine Aufgabe",
+    "trash": "Papierkorb",
+    "thememode": "Design-Modus",
+    "changelanguage": "Sprache ändern"
+  },
+
+  "trash": {
+    "chip_title": "Gelöschte Aufgabe",
+    "delete_all": "Alle löschen"
+  },
+  "task_card": {
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "complete": "Abschließen",
+    "uncompleted": "Nicht abgeschlossen"
+  },
+
+  "ad_edit_task": {
+    "main": "Aufgabe hinzufügen",
+    "edit": "Aufgabe bearbeiten",
+    "title": "Titel",
+    "description": "Beschreibung"
+  },
+
+  "general": {
+    "button": {
+      "save": "Speichern ",
+      "cancel": "Abbrechen"
+    },
+
+    "dialog": {
+      "version": {
+        "title": "Version",
+        "content": "Versionsinformationen"
+      }
+    }
+  }
+}

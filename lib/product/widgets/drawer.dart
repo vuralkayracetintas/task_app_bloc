@@ -7,44 +7,23 @@ import 'package:task_app/feature/screens/language/language_screen.dart';
 import 'package:task_app/feature/screens/recycle/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
 import 'package:task_app/product/init/language/locale_keys.g.dart';
+import 'package:task_app/product/widgets/localization/locale_text.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Color chipBackgroundContoller(int index) {
-    //   if (index < 5) {
-    //     return ColorConstants.lightGreen;
-    //   } else if (index >= 5 && index < 10) {
-    //     return ColorConstants.orange;
-    //   } else {
-    //     return Colors.red;
-    //   }
-    // }
-
     return Drawer(
-      // backgroundColor: context.general.appTheme.drawerTheme.backgroundColor,
       backgroundColor: context.general.appTheme.backgroundColor,
-      child: //Container(
-          // decoration: const BoxDecoration(
-          //   gradient: LinearGradient(
-          //     begin: Alignment.topCenter,
-          //     end: Alignment.bottomCenter,
-          //     colors: [
-          //       // ColorConstants.orange,
-          //       // ColorConstants.lightGreen,
-          //       Colors.white,
-          //       ColorConstants.darkGreen,
-          //     ],
-          //   ),
-          // ),
-          SafeArea(
+      child: SafeArea(
         child: Column(
           children: [
             SizedBox(
               height: context.sized.height * 0.05,
             ),
+
+            /// My Tasks Button
             BlocBuilder<TasksBloc, TasksState>(
               builder: (context, state) {
                 return GestureDetector(
@@ -54,19 +33,21 @@ class DrawerWidget extends StatelessWidget {
                     title: const Text(LocaleKeys.drawer_mytask).tr(),
                     trailing: Chip(
                       padding: context.padding.low,
-                      label: Text(state.pendingTask.length.toString()),
+                    label: Text(state.pendingTask.length.toString()),
                     ),
                   ),
                 );
               },
             ),
+
+            /// Trash Button
             BlocBuilder<TasksBloc, TasksState>(
               builder: (context, state) {
                 return GestureDetector(
                   onTap: () => Navigator.of(context).pushNamed(RecycleBin.id),
                   child: ListTile(
                     leading: const Icon(Icons.delete),
-                    title: const Text(LocaleKeys.drawer_trash).tr(),
+                    title: const LocaleText(text: LocaleKeys.drawer_trash),
                     trailing: Chip(
                       padding: context.padding.low,
                       label: Text(state.removedTasks.length.toString()),
@@ -75,13 +56,15 @@ class DrawerWidget extends StatelessWidget {
                 );
               },
             ),
+
+            /// Theme mode switch
             BlocBuilder<SwitchBloc, SwitchState>(
               builder: (context, state) {
                 return ListTile(
                   leading: state.switchValue
                       ? const Icon(Icons.dark_mode)
                       : const Icon(Icons.light_mode),
-                  title: const Text(LocaleKeys.drawer_thememode).tr(),
+                  title: const LocaleText(text: LocaleKeys.drawer_thememode),
                   trailing: Switch(
                     value: state.switchValue,
                     onChanged: (newValue) {
@@ -93,10 +76,14 @@ class DrawerWidget extends StatelessWidget {
                 );
               },
             ),
+
+            /// Change language button
             GestureDetector(
               onTap: () => Navigator.of(context).pushNamed(LanguageScreen.id),
               child: ListTile(
                 leading: const Icon(Icons.flag),
+                // title: LocaleText(text: LocaleKeys.drawer_changelanguage),
+
                 title: const Text(LocaleKeys.drawer_changelanguage).tr(),
               ),
             ),
