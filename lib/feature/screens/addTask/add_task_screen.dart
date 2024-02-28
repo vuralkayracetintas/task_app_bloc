@@ -24,7 +24,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   @override
   void initState() {
-    // googleAds.loadIntestitialAd();
+    googleAds.loadIntestitialAd();
     super.initState();
     debugPrint('ads initialize');
   }
@@ -32,7 +32,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   void dispose() {
     super.dispose();
-    // googleAds.loadIntestitialAd();
+    googleAds.loadIntestitialAd();
     debugPrint('ads dispose');
   }
 

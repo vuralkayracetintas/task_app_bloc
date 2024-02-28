@@ -2,7 +2,7 @@
   "home": {
     "todo": {
       "title": "ZU ERLEDIGEN Aufgaben",
-      "chip_first": "{} Aufgaben",
+      "chip_first": "Aufgaben",
       "chip_second": "Abgeschlossen",
       "bottom_nav": "ZU ERLEDIGEN",
       "delete_all": "Alle entfernen"

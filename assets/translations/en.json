@@ -2,7 +2,7 @@
   "home": {
     "todo": {
       "title": "TO DO Tasks",
-      "chip_first": "{} Tasks",
+      "chip_first": "Tasks",
       "chip_second": "Completed",
       "bottom_nav": "TO DO",
       "delete_all": "Remove All"

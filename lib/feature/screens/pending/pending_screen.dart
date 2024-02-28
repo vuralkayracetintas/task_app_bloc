@@ -35,11 +35,11 @@ class _PendingScreenState extends State<PendingScreen> {
                 label: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(LocaleKeys.home_todo_chip_first)
-                        .tr(args: ["${state.pendingTask.length}"]),
+                    // Text(LocaleKeys.home_todo_chip_first)
+                    //     .tr(args: ["${state.pendingTask.length}"]),
 
-                    // Text(
-                    //     '${state.pendingTask.length} ${LocaleKeys.home_todo_chip_first.tr()} ${state.completedTask.length} ${LocaleKeys.home_todo_chip_second.tr()}'),
+                    Text(
+                        '${state.pendingTask.length} ${LocaleKeys.home_todo_chip_first.tr()} ${state.completedTask.length} ${LocaleKeys.home_todo_chip_second.tr()}'),
                   ],
                 ),
               ),
