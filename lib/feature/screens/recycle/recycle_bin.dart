@@ -27,32 +27,37 @@ class RecycleBin extends StatelessWidget {
             )),
             actions: [
               TextButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: const Text(LocaleKeys.trash_delete_all).tr(),
-                          content: const Text('Are you sure?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                context.read<TasksBloc>().add(DeleteAllTasks());
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Yes'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('No'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
+                  onPressed: state.removedTasks.isNotEmpty
+                      ? () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text(LocaleKeys.trash_delete_all)
+                                    .tr(),
+                                content: const Text('Are you sure?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      context
+                                          .read<TasksBloc>()
+                                          .add(DeleteAllTasks());
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('Yes'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('No'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      : null,
                   // onPressed: () =>
                   //     context.read<TasksBloc>().add(DeleteAllTasks()),
                   child: const Text(LocaleKeys.trash_delete_all).tr())

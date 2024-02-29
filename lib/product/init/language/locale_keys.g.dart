@@ -40,6 +40,11 @@ abstract class  LocaleKeys {
   static const ad_edit_task_title = 'ad_edit_task.title';
   static const ad_edit_task_description = 'ad_edit_task.description';
   static const ad_edit_task = 'ad_edit_task';
+  static const alert_delete = 'alert.delete';
+  static const alert_title = 'alert.title';
+  static const alert_yes = 'alert.yes';
+  static const alert_no = 'alert.no';
+  static const alert = 'alert';
   static const general_button_save = 'general.button.save';
   static const general_button_cancel = 'general.button.cancel';
   static const general_button = 'general.button';

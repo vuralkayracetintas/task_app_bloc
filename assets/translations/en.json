@@ -24,9 +24,9 @@
     }
   },
 
-  "language" :{
-    "turkey" : "Turkish",
-    "english" : "English",
+  "language": {
+    "turkey": "Turkish",
+    "english": "English",
     "german": "German"
   },
 
@@ -54,7 +54,12 @@
     "title": "Title",
     "description": "Description"
   },
-
+  "alert": {
+    "delete": "Delete All",
+    "title": "Are you sure you want to delete it?",
+    "yes": "Yes",
+    "no": "No"
+  },
   "general": {
     "button": {
       "save": "Save ",

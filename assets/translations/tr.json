@@ -51,6 +51,13 @@
     "description": "Açıklama"
   },
 
+  "alert": {
+    "delete": "Hepsini Sil",
+    "title": "Silmek istediğine emin misin ?",
+    "yes": "Evet",
+    "no": "Hayır"
+  },
+
   "general": {
     "button": {
       "save": "Kaydet",

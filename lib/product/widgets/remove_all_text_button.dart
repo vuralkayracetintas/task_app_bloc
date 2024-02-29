@@ -19,13 +19,21 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                 builder: (context) {
                   return AlertDialog(
                     backgroundColor: context.general.appTheme.cardColor,
-                    title: const Text(
-                      'Delete All',
-                      style: TextStyle(color: Colors.black),
+                    // title: const Text(
+                    //   'Delete All',
+                    //   style: TextStyle(color: Colors.black),
+                    // ),
+                    title: LocaleText(
+                      text: LocaleKeys.alert_delete,
+                      textStyle: TextStyle(color: Colors.black),
                     ),
-                    content: const Text(
-                      'Are you sure?',
-                      style: TextStyle(color: Colors.black),
+                    // content: const Text(
+                    //   'Are you sure?',
+                    //   style: TextStyle(color: Colors.black),
+                    // ),
+                    content: LocaleText(
+                      text: LocaleKeys.alert_title,
+                      textStyle: TextStyle(color: Colors.black),
                     ),
                     actions: [
                       TextButton(
@@ -33,18 +41,26 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                           context.read<TasksBloc>().add(DeleteAllTaskHome());
                           Navigator.pop(context);
                         },
-                        child: const Text(
-                          'Yes',
-                          style: TextStyle(color: Colors.black),
+                        // child: const Text(
+                        //   'Yes',
+                        //   style: TextStyle(color: Colors.black),
+                        // ),
+                        child: LocaleText(
+                          text: LocaleKeys.alert_yes,
+                          textStyle: TextStyle(color: Colors.black),
                         ),
                       ),
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text(
-                          'No',
-                          style: TextStyle(color: Colors.black),
+                        // child: const Text(
+                        //   'No',
+                        //   style: TextStyle(color: Colors.black),
+                        // ),
+                        child: LocaleText(
+                          text: LocaleKeys.alert_no,
+                          textStyle: TextStyle(color: Colors.black),
                         ),
                       ),
                     ],

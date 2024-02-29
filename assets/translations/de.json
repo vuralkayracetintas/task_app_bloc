@@ -55,6 +55,13 @@
     "description": "Beschreibung"
   },
 
+  "alert": {
+    "delete": "alles löschen",
+    "title": "Sind Sie sicher, dass Sie es löschen wollen?",
+    "yes": "ja",
+    "no": "nein"
+  },
+
   "general": {
     "button": {
       "save": "Speichern ",
