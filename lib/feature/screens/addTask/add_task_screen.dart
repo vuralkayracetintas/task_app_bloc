@@ -24,7 +24,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   @override
   void initState() {
-    googleAds.loadIntestitialAd();
+    // googleAds.loadIntestitialAd();
     super.initState();
     debugPrint('ads initialize');
   }
@@ -123,7 +123,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                             ),
                           ),
                         );
-                    // _interstitialAd?.show();
+                    // googleAds.showInterstitialAd(); // _interstitialAd?.show();
+
                     // if (_interstitialAd != null) {
                     //   _interstitialAd?.show();
                     //   print('add loaded');
@@ -137,6 +138,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     debugPrint(desc);
                     debugPrint(GUIDGen.generate());
                   }
+
+                  googleAds.loadIntestitialAd();
                 },
                 child: const Text(LocaleKeys.general_button_save).tr(),
               ),

@@ -50,3 +50,5 @@ app.*.map.json
 lib/product/service/ads_service.dart
 /android/app/src/main/AndroidManifest.xml
 /ios/Runner/Info.plist
+/android/app/main/AndroidManifest.xml
+
