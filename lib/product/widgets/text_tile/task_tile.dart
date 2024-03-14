@@ -4,6 +4,8 @@ import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/models/task_model.dart';
 
+part 'task_tile_mixin.dart';
+
 class TaskTile extends StatefulWidget {
   const TaskTile({
     super.key,
@@ -17,7 +19,7 @@ class TaskTile extends StatefulWidget {
   State<TaskTile> createState() => _TaskTileState();
 }
 
-class _TaskTileState extends State<TaskTile> {
+class _TaskTileState extends State<TaskTile> with TaskTileMixin {
   void removeOrDelete(BuildContext context, Task task) {
     task.isDeleted!
         ? context.read<TasksBloc>().add(DeleteTask(task: task))
@@ -51,18 +53,6 @@ class _TaskTileState extends State<TaskTile> {
           Expanded(
             child: Row(
               children: [
-                // widget.task.isFavorite == false
-                //     ? const Icon(Icons.star_border_outlined)
-                //     : const Icon(Icons.star),
-                // widget.task.isFavorite == false
-                //     ? FavoriteController(
-                //         widget: widget,
-                //         icon: Icon(Icons.star_border_outlined),
-                //       )
-                //     : FavoriteController(
-                //         widget: widget,
-                //         icon: Icon(Icons.star),
-                //       ),
                 SizedBox(
                   width: context.sized.width * 0.05,
                 ),
@@ -88,40 +78,19 @@ class _TaskTileState extends State<TaskTile> {
                   Row(
                     children: [
                       widget.isCompleted == false
-                          ? // Yeni eklenen satır
-                          Checkbox(
+                          ? Checkbox(
                               activeColor: context.general.appTheme
                                   .floatingActionButtonTheme.backgroundColor,
                               value: widget.task.isDone,
                               onChanged: widget.task.isDeleted == false
                                   ? (value) {
-                                      context
-                                          .read<TasksBloc>()
-                                          .add(UpdateTask(task: widget.task));
+                                      updateTask(context);
                                     }
                                   : null,
                             )
                           : SizedBox(
                               width: context.sized.width * 0.05,
                             ),
-                      // PopupMenu(
-                      //   task: widget.task,
-                      //   cancelOrDeleteCallBack: () =>
-                      //       removeOrDelete(context, widget.task),
-                      //   likeOrDislike: () => context
-                      //       .read<TasksBloc>()
-                      //       .add(FavoriteOrUnFavoriteTask(task: widget.task)),
-                      //   editTask: () {
-                      //     // Navigator.pop(context);
-                      //     _editTask(context);
-                      //   },
-                      //   restoreTask: () => context
-                      //       .read<TasksBloc>()
-                      //       .add(RestoreTasks(task: widget.task)),
-                      //   completeTask: () => context
-                      //       .read<TasksBloc>()
-                      //       .add(UpdateTask(task: widget.task)),
-                      // ),
                     ],
                   )
               ],
@@ -130,41 +99,6 @@ class _TaskTileState extends State<TaskTile> {
         ],
       ),
     );
-    // return ListTile(
-    //     title: Text(
-    //       widget.task.title,
-    //       style: TextStyle(
-    //           decoration: widget.task.isDone!
-    //               ? TextDecoration.lineThrough
-    //               : TextDecoration.none),
-    //     ),
-    //     trailing: widget.task.isDeleted == false
-    //         ? Checkbox(
-    //             value: widget.task.isDone,
-    //             onChanged: (value) {
-    //               context.read<TasksBloc>().add(UpdateTask(task: widget.task));
-    //             },
-    //           )
-    //         : null,
-    //     onLongPress: () => showDialog(
-    //           context: context,
-    //           builder: (context) => AlertDialog(
-    //             title: const Text('Delete Task'),
-    //             content: const Text('Are you sure?'),
-    //             actions: [
-    //               TextButton(
-    //                   onPressed: () => Navigator.pop(context),
-    //                   child: const Text('Cancel')),
-    //               TextButton(
-    //                   onPressed: () {
-    //                     // context.read<TasksBloc>().add(DeleteTask(task: task));
-    //                     removeOrDelete(context, widget.task);
-    //                     Navigator.pop(context);
-    //                   },
-    //                   child: const Text('Delete'))
-    //             ],
-    //           ),
-    //         ));
   }
 }
 

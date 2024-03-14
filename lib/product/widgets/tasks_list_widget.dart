@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
 import 'package:task_app/product/models/task_model.dart';
-import 'package:task_app/product/widgets/task_tile.dart';
+import 'package:task_app/product/widgets/text_tile/task_tile.dart';
 
 class TaskListWidget extends StatelessWidget {
   const TaskListWidget({super.key, required this.taskList, this.isCompleted});

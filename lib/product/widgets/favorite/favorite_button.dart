@@ -3,9 +3,19 @@ import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/product/models/task_model.dart';
 
-class FavoriteButton extends StatelessWidget {
+part 'favorite_button_mixin.dart';
+
+class FavoriteButton extends StatefulWidget {
   const FavoriteButton({super.key, required this.task});
   final Task task;
+
+  @override
+  State<FavoriteButton> createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton>
+    with FavoriteButtonMixin {
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,24 +26,16 @@ class FavoriteButton extends StatelessWidget {
           backgroundColor: context
               .general.appTheme.floatingActionButtonTheme.backgroundColor,
         ),
-        task.isFavorite == false
+        widget.task.isFavorite == false
             ? IconButton(
                 iconSize: context.sized.height * 0.02,
                 color: Colors.white,
-                onPressed: () {
-                  context
-                      .read<TasksBloc>()
-                      .add(FavoriteOrUnFavoriteTask(task: task));
-                },
+                onPressed: () => favoriteUnFavorite(),
                 icon: const Icon(Icons.favorite_border))
             : IconButton(
                 iconSize: context.sized.height * 0.02,
                 color: Colors.white,
-                onPressed: () {
-                  context
-                      .read<TasksBloc>()
-                      .add(FavoriteOrUnFavoriteTask(task: task));
-                },
+                onPressed: () => favoriteUnFavorite(),
                 icon: const Icon(Icons.favorite))
       ],
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
-import 'package:task_app/blocs/task_bloc/tasks_bloc.dart';
+
 import 'package:task_app/product/init/language/locale_keys.g.dart';
 import 'package:task_app/product/widgets/localization/locale_text.dart';
 
@@ -23,7 +23,7 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                     //   'Delete All',
                     //   style: TextStyle(color: Colors.black),
                     // ),
-                    title: LocaleText(
+                    title: const LocaleText(
                       text: LocaleKeys.alert_delete,
                       textStyle: TextStyle(color: Colors.black),
                     ),
@@ -31,7 +31,7 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                     //   'Are you sure?',
                     //   style: TextStyle(color: Colors.black),
                     // ),
-                    content: LocaleText(
+                    content: const LocaleText(
                       text: LocaleKeys.alert_title,
                       textStyle: TextStyle(color: Colors.black),
                     ),
@@ -45,7 +45,7 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                         //   'Yes',
                         //   style: TextStyle(color: Colors.black),
                         // ),
-                        child: LocaleText(
+                        child: const LocaleText(
                           text: LocaleKeys.alert_yes,
                           textStyle: TextStyle(color: Colors.black),
                         ),
@@ -58,7 +58,7 @@ class RemoveAllTextButtonWidget extends StatelessWidget {
                         //   'No',
                         //   style: TextStyle(color: Colors.black),
                         // ),
-                        child: LocaleText(
+                        child: const LocaleText(
                           text: LocaleKeys.alert_no,
                           textStyle: TextStyle(color: Colors.black),
                         ),
