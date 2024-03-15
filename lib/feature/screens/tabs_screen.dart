@@ -99,11 +99,9 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Theme.of(context).backgroundColor,
-      // appBar: _taskScreenAppBar(context),
+      appBar: _taskScreenAppBar(context),
       drawer: const DrawerWidget(),
-      body: SafeArea(
-        child: _pages[_selectedPage]['pageName'],
-      ),
+      body: _pages[_selectedPage]['pageName'],
 
       floatingActionButton: _selectedPage == 0
           ? FloatingActionButton(
