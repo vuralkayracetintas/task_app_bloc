@@ -35,10 +35,6 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             title: 'Notedle',
-            // theme: ThemeData(
-            //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            //   useMaterial3: true,
-            // ),
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
