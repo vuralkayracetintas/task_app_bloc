@@ -6,13 +6,10 @@ import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/task_bloc/tasks_bloc.dart';
 import 'package:task_app/feature/screens/addTask/add_task_screen.dart';
 import 'package:task_app/feature/screens/completed/completed_task_screen.dart';
-
 import 'package:task_app/feature/screens/favorite/favorite_task_screen.dart';
 import 'package:task_app/feature/screens/pending/pending_screen.dart';
 import 'package:task_app/product/init/language/locale_keys.g.dart';
-import 'package:task_app/product/init/product_localization.dart';
 import 'package:task_app/product/service/google_ads/ads_service.dart';
-import 'package:task_app/product/utility/constant/enums/locales.dart';
 
 import 'package:task_app/product/widgets/drawer.dart';
 import 'package:task_app/product/widgets/remove_all_text_button.dart';

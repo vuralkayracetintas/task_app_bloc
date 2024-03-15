@@ -6,9 +6,6 @@ import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/pending/pending_body_view.dart';
 import 'package:task_app/product/init/language/locale_keys.g.dart';
-import 'package:task_app/product/init/product_localization.dart';
-import 'package:task_app/product/utility/constant/enums/locales.dart';
-import 'package:task_app/product/widgets/localization/locale_text.dart';
 
 class PendingScreen extends StatefulWidget {
   const PendingScreen({super.key});
