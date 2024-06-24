@@ -1,11 +1,9 @@
 part of 'card_top_widget.dart';
 
 mixin CardTopWidgetMixin on State<CardTop> {
-  void editTask(
-    BuildContext context,
-  ) {
+  void editTask(BuildContext context) {
     showModalBottomSheet(
-        backgroundColor: context.general.appTheme.backgroundColor,
+        backgroundColor: context.general.appTheme.colorScheme.onPrimary,
         context: context,
         isScrollControlled: true,
         useSafeArea: true,
@@ -28,7 +26,7 @@ mixin CardTopWidgetMixin on State<CardTop> {
     context.read<TasksBloc>().add(RestoreTasks(task: widget.task));
   }
 
-  void completeTask() {
+  void _completeTask() {
     context.read<TasksBloc>().add(UpdateTask(task: widget.task));
   }
 }

@@ -29,7 +29,7 @@ class _TabScreenState extends State<TabScreen> {
     showModalBottomSheet(
         // elevation: 10,
 
-        backgroundColor: context.general.appTheme.backgroundColor,
+        backgroundColor: context.general.appTheme.colorScheme.onPrimary,
         context: context,
         useSafeArea: true,
         isScrollControlled: true,
@@ -56,24 +56,24 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     super.initState();
-    _createBanner();
+    // _createBanner();
   }
 
   @override
   void dispose() {
     super.dispose();
 
-    _createBanner();
+    // _createBanner();
   }
 
-  void _createBanner() {
-    bannerAd = BannerAd(
-      size: AdSize.fullBanner,
-      adUnitId: AdsService.bannerAdUnitId,
-      listener: AdsService.bannerListener,
-      request: const AdRequest(),
-    )..load();
-  }
+  // void _createBanner() {
+  //   bannerAd = BannerAd(
+  //     size: AdSize.fullBanner,
+  //     adUnitId: AdsService.bannerAdUnitId,
+  //     listener: AdsService.bannerListener,
+  //     request: const AdRequest(),
+  //   )..load();
+  // }
 
   // void _createInterstitialAd() {
   //   InterstitialAd.load(
@@ -145,7 +145,6 @@ class _TabScreenState extends State<TabScreen> {
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.favorite),
-                // label: _pages[2]['title']
                 label: LocaleKeys.home_favorite_bottom_nav.tr(),
               )
             ],

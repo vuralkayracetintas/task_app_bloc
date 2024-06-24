@@ -16,7 +16,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: context.general.appTheme.backgroundColor,
+      backgroundColor: context.general.appTheme.colorScheme.onPrimary,
       child: SafeArea(
         child: Column(
           children: [

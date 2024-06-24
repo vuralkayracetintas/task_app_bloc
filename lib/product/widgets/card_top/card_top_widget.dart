@@ -18,8 +18,7 @@ class CardTop extends StatefulWidget {
   State<CardTop> createState() => _CardTopState();
 }
 
-class _CardTopState extends State<CardTop> with CardTopWidgetMixin {
-
+class _CardTopState extends State<CardTop>  with CardTopWidgetMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -46,7 +45,7 @@ class _CardTopState extends State<CardTop> with CardTopWidgetMixin {
             likeOrDislike: () => likeOrDislike(),
             editTask: () => editTask(context),
             restoreTask: () => restoreTask(),
-            completeTask: () => completeTask(),
+            completeTask: () => _completeTask(),
           )
         ],
       ),

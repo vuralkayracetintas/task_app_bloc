@@ -54,7 +54,7 @@ class AppThemes {
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
       ),
-      backgroundColor: const Color(0xFFE5E5E5),
+      // backgroundColor: const Color(0xFFE5E5E5),
       dividerColor: const Color(0xff757575),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         // backgroundColor: Colors.grey,

@@ -19,7 +19,7 @@ final class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-  GoogleAds googleAds = GoogleAds();
+  // GoogleAds googleAds = GoogleAds();
   // AdsFunction adsFunction = AdsFunction();
 
   @override
@@ -32,7 +32,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   void dispose() {
     super.dispose();
-    googleAds.loadIntestitialAd();
+    // googleAds.loadIntestitialAd();
     debugPrint('ads dispose');
   }
 
@@ -139,7 +139,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     debugPrint(GUIDGen.generate());
                   }
 
-                  googleAds.loadIntestitialAd();
+                  // googleAds.loadIntestitialAd();
                 },
                 child: const Text(LocaleKeys.general_button_save).tr(),
               ),

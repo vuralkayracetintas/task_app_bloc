@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task_app/feature/screens/language/language_screen.dart';
 import 'package:task_app/feature/screens/recycle/recycle_bin.dart';
 import 'package:task_app/feature/screens/tabs_screen.dart';
+import 'package:task_app/in_app_rewiew.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings routeSettings) {
@@ -17,6 +18,9 @@ class AppRouter {
 
       case LanguageScreen.id:
         return MaterialPageRoute(builder: (context) => const LanguageScreen());
+      case InAppReviewExampleApp.id:
+        return MaterialPageRoute(
+            builder: (context) => const InAppReviewExampleApp());
 
       default:
         return null;

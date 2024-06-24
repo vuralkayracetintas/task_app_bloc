@@ -2,9 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:kartal/kartal.dart';
 import 'package:task_app/blocs/bloc_exports.dart';
 import 'package:task_app/feature/screens/pending/pending_body_view.dart';
+import 'package:task_app/in_app_rewiew.dart';
 import 'package:task_app/product/init/language/locale_keys.g.dart';
 
 class PendingScreen extends StatefulWidget {
@@ -19,6 +21,17 @@ class PendingScreen extends StatefulWidget {
 String xValue = LocaleKeys.home_todo_chip_first.tr();
 
 class _PendingScreenState extends State<PendingScreen> {
+  final InAppReview inAppReview = InAppReview.instance;
+  Future<void> _reviewStore() async {
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+
+      inAppReview.openStoreListing(
+          appStoreId: 'com.vkcode.ckv.taskapp.task_app',
+          microsoftStoreId: 'com.vkcode.ckv.taskapp.task_app');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // final AdsFunction adsFunction = AdsFunction();
@@ -40,6 +53,13 @@ class _PendingScreenState extends State<PendingScreen> {
                   ],
                 ),
               ),
+
+              ElevatedButton(
+                  onPressed: () {
+                    // _reviewStore();
+                    Navigator.of(context).pushNamed(InAppReviewExampleApp.id);
+                  },
+                  child: Text('Review')),
               const PendingTaskBody(
                 isCompleted: false,
               ),
